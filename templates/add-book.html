@@ -1,0 +1,27 @@
+<form id="add-book-block"
+      ng-controller="booksController as authorsCtrl"
+      ng-show="appCtrl.showAddBookPanel"
+      ng-submit="authorsCtrl.addBook()">
+    <div>
+        <label for="addbook-book-id">Book ID</label>
+        <input type="text" id="addbook-book-id" ng-model="authorsCtrl.book.id"/>
+    </div>
+    <div>
+        <label for="addbook-book-name">Book name</label>
+        <input type="text" id="addbook-book-name" ng-model="authorsCtrl.book.name"/>
+    </div>
+    <div>
+        <label for="addbook-book-date">Date</label>
+        <input type="text" id="addbook-book-date" ng-model="authorsCtrl.book.date" min="0" max="2015" required/>
+    </div>
+    <div>
+        <label for="addbook-author-id-drop">Author</label>
+        <select name="" id="addbook-author-id-drop" ng-model="authorsCtrl.book.author" value="{{author.name}}">
+            <option ng-repeat="author in authorsCtrl.authors">
+                {{author.name}}
+            </option>
+        </select>
+    </div>
+    <input type="submit" value="Save book"/>
+    <button ng-click="appCtrl.toggleAddBookPanel()">Cancel</button>
+</form>

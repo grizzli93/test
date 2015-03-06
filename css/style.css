@@ -1,0 +1,11 @@
+label {
+    display: inline-block;
+    width: 100px;
+}
+select {
+    height: 26px;
+    font-size: 16px;
+}
+.control-wrapper {
+    padding: 30px;
+}
