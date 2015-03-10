@@ -2,25 +2,12 @@
 <html ng-app="newModule">
     <head lang="en">
         <meta charset="UTF-8">
-        <title></title>
+        <title>Books</title>
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
     </head>
-    <body ng-controller="appController as appCtrl">
-        <div class="control-wrapper">
-            <input type="text"/>
-            <button id="find-book">Find</button>
-        </div>
-        <div class="control-wrapper">
-            <a href="#/books">Show books list</a>
-            <a href="#/authors">Show authors list</a>
-        </div>
-        <!--ng-include="'table.html'"-->
-        <div ng-view></div>
-        <div class="control-wrapper">
-            <button id="add-book" ng-click="appCtrl.toggleAddBookPanel()" ng-hide="appCtrl.showAddBookPanel">Add book</button>
-            <button id="add-author" ng-click="appCtrl.toggleAddAuthorPanel()" ng-hide="appCtrl.showAddAuthorPanel">Add author</button>
-        </div>
+    <body ng-controller="appController">
+        <app-controls></app-controls>
         <div class="control-wrapper">
             <add-book></add-book>
             <add-author></add-author>
@@ -29,6 +16,6 @@
     <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-route.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/routes.js"></script>
+    <!--<script src="js/routes.js"></script>-->
     <!--<script src="bootstrap.min.js"></script>-->
 </html>

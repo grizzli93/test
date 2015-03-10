@@ -1,48 +1,66 @@
 (function () {
-    angular.module('newModule', [])
-        .directive('addBook', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'templates/add-book.html'
-            }
-        });
-    angular.module('newModule', [])
-        .directive('addAuthor', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'templates/add-author.html'
-            }
-        });
-    angular.module('newModule', []).controller('booksController', ['$http', function ($http) {
-        this.book = {};
-        this.author = {};
-        var that = this;
-//        this.books = books;
-        $http.get('data/data.books.json').success(function (data) {
-            that.books = data;
-        });
+    var app = angular.module('newModule', ['ngRoute']);
+    app.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider
+            .when('/books', {
+                templateUrl: 'templates/pages/books/table.html'
+            })
+            .when('/authors', {
+                templateUrl: 'templates/pages/authors/table.html'
+            })
+    }]);
+    app.controller('appController', ['$scope', function ($scope) {
+        $scope.showAddBookPanel = false;
+        $scope.showAddAuthorPanel = false;
+        $scope.toggleAddBookPanel = function () {
+            $scope.showAddBookPanel = !$scope.showAddBookPanel;
+        };
+        this.toggleAddAuthorPanel = function () {
+            $scope.showAddAuthorPanel = !$scope.showAddAuthorPanel;
+        };
+    }]);
+
+//    angular.module('newModule', [])
+    app.directive('addBook', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/add-book.html'
+        }
+    });
+//    angular.module('newModule', [])
+    app.directive('addAuthor', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/add-author.html'
+        }
+    });
+//    angular.module('newModule', [])
+    app.controller('booksController', ['$http','$scope', function ($http, $scope) {
+        $scope.book = {};
+        $scope.author = {};
+        var that = $scope;
+        $scope.books = books;
+//        $http.get('data/data.books.json').success(function (data) {
+//            that.books = data;
+//        });
         $http.get('data/data.authors.json').success(function (data) {
             that.authors = data;
         });
-        this.addAuthor = function () {
-            this.authors.push(this.author);
-            this.author = {};
+        $scope.addAuthor = function () {
+            $scope.authors.push($scope.author);
+            $scope.author = {};
         };
-        this.addBook = function () {
-            this.books.push(this.book);
+        $scope.addBook = function () {
+            $scope.books.push($scope.book);
             $http.put('data/data.books.json', this.books);
-            this.book = {};
+            $scope.book = {};
         };
     }]);
-    angular.module('newModule', []).controller('appController', function () {
-        this.showAddBookPanel = false;
-        this.showAddAuthorPanel = false;
-        this.toggleAddBookPanel = function () {
-            this.showAddBookPanel = !this.showAddBookPanel;
-        };
-        this.toggleAddAuthorPanel = function () {
-            this.showAddAuthorPanel = !this.showAddAuthorPanel;
-        };
+    app.directive('appControls', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/app-controls.html'
+        }
     });
 
     var books = [

@@ -1,15 +1,17 @@
 <form id="add-author-block"
-      ng-controller="booksController as booksCtrl"
-      ng-show="appCtrl.showAddAuthorPanel"
-      ng-submit="booksCtrl.addAuthor()">
+      ng-controller="booksController"
+      ng-show="showAddAuthorPanel"
+      ng-submit="addAuthor()">
     <div>
         <label for="addauthor-author-id">Author ID</label>
-        <input type="text" id="addauthor-author-id" ng-model="booksCtrl.author.id"/>
+        <input type="text" id="addauthor-author-id" ng-model="author.id"/>
     </div>
     <div>
-        <label for="addauthor-author-name">Author name</label>
-        <input type="text" id="addauthor-author-name" ng-model="booksCtrl.author.name"/>
+        <label for="addauthor-author-name">
+            Author name
+        </label>
+        <input type="text" id="addauthor-author-name" ng-model="author.name"/>
     </div>
     <input type="submit" value="Save author"/>
-    <button ng-click="appCtrl.toggleAddAuthorPanel()">Cancel</button>
+    <button ng-click="$parent.  toggleAddAuthorPanel()">Cancel</button>
 </form>

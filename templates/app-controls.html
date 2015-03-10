@@ -1,0 +1,22 @@
+<div class="control-wrapper">
+    <input type="text"/>
+    <button id="find-book">Find</button>
+</div>
+<div class="control-wrapper">
+    <a href="#/books">Show books list</a>
+    <a href="#/authors">Show authors list</a>
+</div>
+<!--ng-include="'table.html'"-->
+<div ng-view></div>
+<div class="control-wrapper">
+    <button id="add-book"
+            ng-click="appController.toggleAddBookPanel()"
+            ng-hide="appController.showAddBookPanel">
+        Add book
+    </button>
+    <button id="add-author"
+            ng-click="appController.toggleAddAuthorPanel()"
+            ng-hide="appController.showAddAuthorPanel">
+        Add author
+    </button>
+</div>
