@@ -15,7 +15,7 @@
         $scope.toggleAddBookPanel = function () {
             $scope.showAddBookPanel = !$scope.showAddBookPanel;
         };
-        this.toggleAddAuthorPanel = function () {
+        $scope.toggleAddAuthorPanel = function () {
             $scope.showAddAuthorPanel = !$scope.showAddAuthorPanel;
         };
     }]);
@@ -59,6 +59,7 @@
     app.directive('appControls', function() {
         return {
             restrict: 'E',
+            scope: false,
             templateUrl: 'templates/app-controls.html'
         }
     });

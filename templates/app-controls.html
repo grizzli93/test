@@ -10,13 +10,13 @@
 <div ng-view></div>
 <div class="control-wrapper">
     <button id="add-book"
-            ng-click="appController.toggleAddBookPanel()"
-            ng-hide="appController.showAddBookPanel">
+            ng-click="toggleAddBookPanel()"
+            ng-hide="showAddBookPanel">
         Add book
     </button>
     <button id="add-author"
-            ng-click="appController.toggleAddAuthorPanel()"
-            ng-hide="appController.showAddAuthorPanel">
+            ng-click="toggleAddAuthorPanel()"
+            ng-hide="showAddAuthorPanel">
         Add author
     </button>
 </div>
