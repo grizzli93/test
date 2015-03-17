@@ -15,3 +15,26 @@ select {
     line-height: 100px;
     font-size: 35px;
 }
+.glyphicon {
+    font-size: 18px;
+}
+.glyphicon:hover {
+    color: green;
+}
+.searchlabel {
+    position: absolute;
+    width: 15px;
+    z-index: 10;
+    font-size: 12px!important;
+    line-height: 18px;
+}
+.searchlabel > label {
+    line-height: 26px;
+    font-size: 12px;
+    margin-left: 4px;
+}
+.searchlabel+input {
+    position: relative;
+    padding-left: 20px;
+}
+

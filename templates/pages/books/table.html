@@ -1,4 +1,5 @@
-<div ng-controller="booksController" >
+<div ng-controller="booksController">
+    <span>Total items in list: {{((books | filter:search).length)}}</span>
     <table class="table table-hover" ng-show="(books | filter:search).length">
         <thead>
         <tr>
@@ -18,15 +19,17 @@
             <td>{{books.id}}</td>
             <td></td>
             <td>
-                <span class="glyphicon glyphicon-remove"></span>
                 <span class="glyphicon glyphicon-edit"></span>
+                <span class="glyphicon glyphicon-remove"></span>
+                <span ng-hide="true" class="glyphicon glyphicon-trash"></span>
+                <span ng-hide="true" class="glyphicon glyphicon-ok"></span>
             </td>
         </tr>
         </tbody>
     </table>
 
     <div ng-show="!((books | filter:search).length)" class="bg-danger notfound">
+        <span class="glyphicon glyphicon-alert"></span>
         <span>No results found for {{search.$}}</span>
     </div>
-    <span>{{((books | filter:search).length)}}</span>
 </div>

@@ -1,4 +1,7 @@
 <div class="control-wrapper">
+    <span class="searchlabel">
+        <label class="glyphicon glyphicon-search"></label>
+    </span>
     <input type="text" ng-model="search.$"/>
 </div>
 <ul class="nav nav-pills">
@@ -11,7 +14,7 @@
 <!--</div>-->
 <!--ng-include="'table.html'"-->
 <div ng-view></div>
-<div class="control-wrapper">
+<div class="control-wrappwer">
     <button id="add-book"
             ng-click="toggleAddBookPanel()"
             ng-hide="showAddBookPanel">
