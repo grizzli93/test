@@ -17,6 +17,7 @@ select {
 }
 .glyphicon {
     font-size: 18px;
+    cursor: pointer;
 }
 .glyphicon:hover {
     color: green;
@@ -33,13 +34,15 @@ select {
     font-size: 12px;
     margin-left: 4px;
 }
-.searchlabel+input {
+.searchlabel + input {
     position: relative;
     padding-left: 20px;
 }
 body {
     padding: 10px;
 }
-input {}
+.author-add {
+    float: right;
+}
 
 

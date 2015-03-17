@@ -67,6 +67,9 @@
                 }
             }
         };
+        $scope.editEntry = function() {
+
+        };
     }])
     .directive('appControls', function() {
         return {

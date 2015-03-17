@@ -1,30 +1,60 @@
-<form id="add-book-block"
-      ng-controller="booksController"
-      ng-show="showAddBookPanel"
-      ng-submit="addBook()">
-    <div>
-        <label for="addbook-book-id">Book ID</label>
-        <input type="text" id="addbook-book-id" ng-model="book.id"/>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="booksController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add new book</h4>
+            </div>
+            <div class="modal-body">
+                <form id="add-book-block"
+                      ng-submit="addBook()">
+                    <div>
+                        <label for="addbook-book-id">Book ID</label>
+                        <input type="text" id="addbook-book-id" ng-model="book.id" required/>
+                    </div>
+                    <div>
+                        <label for="addbook-book-name">Book name</label>
+                        <input type="text" id="addbook-book-name" ng-model="book.name" required/>
+                    </div>
+                    <div>
+                        <label for="addbook-book-date">Date</label>
+                        <input type="text" id="addbook-book-date"
+                               ng-model="book.date" ng-min="0" ng-max="2015" required/>
+                    </div>
+                    <div>
+                        <label for="addbook-author-id-drop">Author</label>
+                        <input type="text" ng-model="authorsFilter.name"/>
+                    </div>
+                    <div>
+                        <div>
+                            <table class="table table-hover table-bordered">
+                                <tr ng-repeat="author in authors | filter:authorsFilter">
+                                    <td>{{author.name}}<span class="glyphicon glyphicon-plus author-add"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <table>
+
+                            </table>
+                        </div>
+                        <div>
+
+                        </div>
+                            <!--<select name="testtest" id="addbook-author-id-drop"-->
+                                    <!--ng-model="book.author"-->
+                                    <!--ng-options="authors.name as authors.name for authors in authors"-->
+                                    <!--multiple="multiple">-->
+                                <!--<option value="" ng-if="false"></option>-->
+                            <!--</select>-->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                <input type="submit" value="Save book" class="btn btn-warning"/>
+                <input type="button" ng-click="toggleAddBookPanel()" class="btn btn-warning" value="Cancel">
+            </div>
+        </div>
     </div>
-    <div>
-        <label for="addbook-book-name">Book name</label>
-        <input type="text" id="addbook-book-name" ng-model="book.name"/>
-    </div>
-    <div>
-        <label for="addbook-book-date">Date</label>
-        <input type="text" id="addbook-book-date"
-               ng-model="book.date" ng-min="0" ng-max="2015" required/>
-    </div>
-    <div>
-        <label for="addbook-author-id-drop">Author</label>
-        <select name="testtest" id="addbook-author-id-drop"
-                ng-model="book.author"
-                ng-options="authors.name as authors.name for authors in authors"
-                multiple="multiple"
-                >
-            <option value="" ng-if="false"></option>
-        </select>
-    </div>
-    <input type="submit" value="Save book" class="btn btn-warning"/>
-    <input type="button" ng-click="toggleAddBookPanel()" class="btn btn-warning" value="Cancel">
-</form>
+</div>
