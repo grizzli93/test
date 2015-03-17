@@ -1,6 +1,6 @@
 <form id="add-book-block"
       ng-controller="booksController"
-      ng-show="$showAddBookPanel"
+      ng-show="showAddBookPanel"
       ng-submit="addBook()">
     <div>
         <label for="addbook-book-id">Book ID</label>
@@ -12,14 +12,15 @@
     </div>
     <div>
         <label for="addbook-book-date">Date</label>
-        <input type="text" id="addbook-book-date" ng-model="book.date" min="0" max="2015" required/>
+        <input type="text" id="addbook-book-date"
+               ng-model="book.date" min="0" max="2015" required/>
     </div>
     <div>
         <label for="addbook-author-id-drop">Author</label>
-        <select name="" id="addbook-author-id-drop" ng-model="book.author" value="{{author.name}}">
-            <option ng-repeat="author in authors">
-                {{author.name}}
-            </option>
+        <select name="testtest" id="addbook-author-id-drop"
+                ng-model="authors[0].name"
+                ng-options="authors as authors.name for authors in authors">
+            <option value="" ng-if="false"></option>
         </select>
     </div>
     <input type="submit" value="Save book"/>

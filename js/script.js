@@ -1,5 +1,6 @@
 (function () {
     var app = angular.module('newModule', ['ngRoute']);
+
     app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/books', {
@@ -8,8 +9,9 @@
             .when('/authors', {
                 templateUrl: 'templates/pages/authors/table.html'
             })
-    }]);
-    app.controller('appController', ['$scope', function ($scope) {
+    }])
+
+    .controller('appController', ['$scope', function ($scope) {
         $scope.showAddBookPanel = false;
         $scope.showAddAuthorPanel = false;
         $scope.toggleAddBookPanel = function () {
@@ -18,33 +20,32 @@
         $scope.toggleAddAuthorPanel = function () {
             $scope.showAddAuthorPanel = !$scope.showAddAuthorPanel;
         };
-    }]);
+    }])
 
-//    angular.module('newModule', [])
-    app.directive('addBook', function () {
+    .directive('addBook', function () {
         return {
             restrict: 'E',
             templateUrl: 'templates/add-book.html'
         }
-    });
-//    angular.module('newModule', [])
-    app.directive('addAuthor', function () {
+    })
+
+    .directive('addAuthor', function () {
         return {
             restrict: 'E',
             templateUrl: 'templates/add-author.html'
         }
-    });
-//    angular.module('newModule', [])
-    app.controller('booksController', ['$http','$scope', function ($http, $scope) {
+    })
+
+    .controller('booksController', ['$http','$scope', function ($http, $scope) {
         $scope.book = {};
-        $scope.author = {};
-        var that = $scope;
         $scope.books = books;
+        $scope.author = {};
+        $scope.authors = {};
 //        $http.get('data/data.books.json').success(function (data) {
 //            that.books = data;
 //        });
         $http.get('data/data.authors.json').success(function (data) {
-            that.authors = data;
+            $scope.authors = data;
         });
         $scope.addAuthor = function () {
             $scope.authors.push($scope.author);
@@ -55,8 +56,8 @@
             $http.put('data/data.books.json', this.books);
             $scope.book = {};
         };
-    }]);
-    app.directive('appControls', function() {
+    }])
+    .directive('appControls', function() {
         return {
             restrict: 'E',
             scope: false,

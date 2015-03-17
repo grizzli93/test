@@ -1,20 +1,32 @@
-<table class="table table-hover" ng-controller="booksController">
-    <thead>
+<div ng-controller="booksController" >
+    <table class="table table-hover" ng-show="(books | filter:search).length">
+        <thead>
         <tr>
             <th>Name</th>
-            <th>Author</th>
+            <th>Authors</th>
             <th>Date</th>
             <th>ID</th>
             <th>Authors ID</th>
+            <th>Actions</th>
         </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="books in books">
+        </thead>
+        <tbody>
+        <tr ng-repeat="books in books | filter:search">
             <td>{{books.name}}</td>
             <td>{{books.author}}</td>
             <td>{{books.date}}</td>
             <td>{{books.id}}</td>
             <td></td>
+            <td>
+                <span class="glyphicon glyphicon-remove"></span>
+                <span class="glyphicon glyphicon-edit"></span>
+            </td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
+    <div ng-show="!((books | filter:search).length)" class="bg-danger notfound">
+        <span>No results found for {{search.$}}</span>
+    </div>
+    <span>{{((books | filter:search).length)}}</span>
+</div>
