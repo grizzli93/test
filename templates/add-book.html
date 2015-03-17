@@ -13,16 +13,17 @@
     <div>
         <label for="addbook-book-date">Date</label>
         <input type="text" id="addbook-book-date"
-               ng-model="book.date" min="0" max="2015" required/>
+               ng-model="book.date" ng-min="0" ng-max="2015" required/>
     </div>
     <div>
         <label for="addbook-author-id-drop">Author</label>
         <select name="testtest" id="addbook-author-id-drop"
-                ng-model="authors[0].name"
-                ng-options="authors as authors.name for authors in authors">
+                ng-model="book.author"
+                ng-options="authors.name for authors in authors"
+                >
             <option value="" ng-if="false"></option>
         </select>
     </div>
-    <input type="submit" value="Save book"/>
-    <button ng-click="toggleAddBookPanel()">Cancel</button>
+    <input type="submit" value="Save book" class="btn btn-warning"/>
+    <button ng-click="toggleAddBookPanel()" class="btn btn-warning">Cancel</button>
 </form>

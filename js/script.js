@@ -9,6 +9,9 @@
             .when('/authors', {
                 templateUrl: 'templates/pages/authors/table.html'
             })
+            .otherwise({
+                redirectTo: '/books'
+            });
     }])
 
     .controller('appController', ['$scope', function ($scope) {
@@ -54,8 +57,15 @@
         };
         $scope.addBook = function () {
             $scope.books.push($scope.book);
-            $http.put('data/data.books.json', this.books);
+//            $http.put('data/data.books.json', this.books);
             $scope.book = {};
+        };
+        $scope.getAuthorId = function(arg) {
+            for (var i = 0; i < $scope.authors.length; i++) {
+                if ($scope.authors[i].name == arg) {
+                    return $scope.authors[i].id;
+                }
+            }
         };
     }])
     .directive('appControls', function() {

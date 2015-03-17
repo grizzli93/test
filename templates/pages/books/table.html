@@ -17,7 +17,7 @@
             <td>{{books.author}}</td>
             <td>{{books.date}}</td>
             <td>{{books.id}}</td>
-            <td>{{authors.id | filter:books.author}}</td>
+            <td>{{getAuthorId(books.author)}}</td>
             <td>
                 <span class="glyphicon glyphicon-edit"></span>
                 <span class="glyphicon glyphicon-remove"></span>
