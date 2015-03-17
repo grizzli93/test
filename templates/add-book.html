@@ -1,4 +1,4 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="booksController">
+<div class="modal fade" id="booksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="booksController">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,6 +24,7 @@
                     <div>
                         <label for="addbook-author-id-drop">Author</label>
                         <input type="text" ng-model="authorsFilter.name"/>
+                        <span></span>
                     </div>
                     <div>
                         <div>
@@ -32,14 +33,6 @@
                                     <td>{{author.name}}<span class="glyphicon glyphicon-plus author-add"></span></td>
                                 </tr>
                             </table>
-                        </div>
-                        <div>
-                            <table>
-
-                            </table>
-                        </div>
-                        <div>
-
                         </div>
                             <!--<select name="testtest" id="addbook-author-id-drop"-->
                                     <!--ng-model="book.author"-->
@@ -51,9 +44,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
                 <input type="submit" value="Save book" class="btn btn-warning"/>
-                <input type="button" ng-click="toggleAddBookPanel()" class="btn btn-warning" value="Cancel">
+                <input type="button" ng-click="toggleAddBookPanel()" data-dismiss="modal" class="btn btn-warning" value="Cancel">
             </div>
         </div>
     </div>

@@ -19,7 +19,16 @@ select {
     font-size: 18px;
     cursor: pointer;
 }
-.glyphicon:hover {
+.glyphicon-edit:hover {
+    color: yellowgreen;
+}
+.glyphicon-remove:hover {
+    color: #ff5b67;
+}
+.glyphicon-trash:hover {
+    color: #000000;
+}
+.glyphicon-ok:hover {
     color: green;
 }
 .searchlabel {

@@ -19,7 +19,6 @@
             $scope.activeTab = arg;
         };
         $scope.activeTab = 1;
-        $scope.showAddBookPanel = false;
         $scope.showAddAuthorPanel = false;
         $scope.toggleAddBookPanel = function () {
             $scope.showAddBookPanel = !$scope.showAddBookPanel;
