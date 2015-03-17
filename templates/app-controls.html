@@ -5,8 +5,8 @@
     <input type="text" ng-model="search.$"/>
 </div>
 <ul class="nav nav-pills">
-    <li role="presentation"><a href="#/books">Show books list</a></li>
-    <li role="presentation"><a href="#/authors">Show authors list</a></li>
+    <li role="presentation" ng-class="{active : activeTab == 1}" ng-click="setTab(1)"><a href="#/books">Show books list</a></li>
+    <li role="presentation" ng-class="{active : activeTab == 2}" ng-click="setTab(2)"><a href="#/authors">Show authors list</a></li>
 </ul>
 <!--<div class="control-wrapper">-->
 
@@ -17,12 +17,14 @@
 <div class="control-wrappwer">
     <button id="add-book"
             ng-click="toggleAddBookPanel()"
-            ng-hide="showAddBookPanel">
+            ng-hide="showAddBookPanel"
+            class="btn btn-success">
         Add book
     </button>
     <button id="add-author"
             ng-click="toggleAddAuthorPanel()"
-            ng-hide="showAddAuthorPanel">
+            ng-hide="showAddAuthorPanel"
+            class="btn btn-success">
         Add author
     </button>
 </div>

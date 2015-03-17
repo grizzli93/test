@@ -12,6 +12,10 @@
     }])
 
     .controller('appController', ['$scope', function ($scope) {
+        $scope.setTab = function (arg) {
+            $scope.activeTab = arg;
+        };
+        $scope.activeTab = 1;
         $scope.showAddBookPanel = false;
         $scope.showAddAuthorPanel = false;
         $scope.toggleAddBookPanel = function () {
@@ -41,9 +45,6 @@
         $scope.books = books;
         $scope.author = {};
         $scope.authors = {};
-//        $http.get('data/data.books.json').success(function (data) {
-//            that.books = data;
-//        });
         $http.get('data/data.authors.json').success(function (data) {
             $scope.authors = data;
         });

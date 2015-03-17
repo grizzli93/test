@@ -7,7 +7,7 @@ select {
     font-size: 16px;
 }
 .control-wrapper {
-    padding: 30px;
+    padding: 15px;
 }
 .notfound {
     height: 100px;
@@ -36,5 +36,8 @@ select {
 .searchlabel+input {
     position: relative;
     padding-left: 20px;
+}
+body {
+    padding: 10px;
 }
 
