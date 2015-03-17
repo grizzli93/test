@@ -19,11 +19,11 @@
         <label for="addbook-author-id-drop">Author</label>
         <select name="testtest" id="addbook-author-id-drop"
                 ng-model="book.author"
-                ng-options="authors.name for authors in authors"
+                ng-options="authors.name as authors.name for authors in authors"
                 >
             <option value="" ng-if="false"></option>
         </select>
     </div>
     <input type="submit" value="Save book" class="btn btn-warning"/>
-    <button ng-click="toggleAddBookPanel()" class="btn btn-warning">Cancel</button>
+    <input type="button" ng-click="toggleAddBookPanel()" class="btn btn-warning" value="Cancel">
 </form>
