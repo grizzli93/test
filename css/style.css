@@ -31,12 +31,25 @@ select {
 .glyphicon-ok:hover {
     color: green;
 }
+.glyphicon-plus:hover {
+    color: cornflowerblue;
+}
 .searchlabel {
     position: absolute;
     width: 15px;
     z-index: 10;
     font-size: 12px!important;
     line-height: 18px;
+}
+.searchlabel-author {
+    position: absolute;
+    width: 20px;
+    margin-left: 3px;
+    line-height: 26px;
+}
+.searchlabel-author + input {
+    width: 100%;
+    padding-left: 50px;
 }
 .searchlabel > label {
     line-height: 26px;
@@ -53,5 +66,17 @@ body {
 .author-add {
     float: right;
 }
-
+.author-wrapper {
+    display: inline-block;
+    border-radius: 8px;
+    background-color: #23527c;
+    padding: 0 10px;
+    margin: 0 3px;
+    color: #ffffff;
+}
+.author-wrapper > span {
+    color: #ffffff;
+    font-size: 12px;
+    margin-left: 3px;
+}
 

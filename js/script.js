@@ -19,13 +19,6 @@
             $scope.activeTab = arg;
         };
         $scope.activeTab = 1;
-        $scope.showAddAuthorPanel = false;
-        $scope.toggleAddBookPanel = function () {
-            $scope.showAddBookPanel = !$scope.showAddBookPanel;
-        };
-        $scope.toggleAddAuthorPanel = function () {
-            $scope.showAddAuthorPanel = !$scope.showAddAuthorPanel;
-        };
     }])
 
     .directive('addBook', function () {
@@ -47,6 +40,10 @@
         $scope.books = books;
         $scope.author = {};
         $scope.authors = {};
+        $scope.requiredAuthors = [];
+        $scope.addRequiredAuthor = function (arg) {
+            $scope.requiredAuthors.push(arg);
+        };
         $http.get('data/data.authors.json').success(function (data) {
             $scope.authors = data;
         });
@@ -54,9 +51,11 @@
             $scope.authors.push($scope.author);
             $scope.author = {};
         };
-        $scope.addBook = function () {
+        $scope.addBook = function () {debugger;
+            $scope.books.author = $scope.requiredAuthors;
             $scope.books.push($scope.book);
 //            $http.put('data/data.books.json', this.books);
+            $scope.requiredAuthors = [];
             $scope.book = {};
         };
         $scope.getAuthorId = function(arg) {
