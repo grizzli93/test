@@ -49,8 +49,8 @@
       <file leaf-file-name="add-book.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/add-book.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.373444" vertical-offset="0" max-vertical-offset="723">
-              <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.7219917" vertical-offset="0" max-vertical-offset="723">
+              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -464,7 +464,11 @@
       <created>1426606462103</created>
       <updated>1426606462103</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="First working app">
+      <created>1426608135391</created>
+      <updated>1426608135391</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -940,8 +944,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/add-book.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.373444" vertical-offset="0" max-vertical-offset="723">
-          <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.7219917" vertical-offset="0" max-vertical-offset="723">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding />
         </state>
       </provider>

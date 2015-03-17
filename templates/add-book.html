@@ -20,6 +20,7 @@
         <select name="testtest" id="addbook-author-id-drop"
                 ng-model="book.author"
                 ng-options="authors.name as authors.name for authors in authors"
+                multiple="multiple"
                 >
             <option value="" ng-if="false"></option>
         </select>
