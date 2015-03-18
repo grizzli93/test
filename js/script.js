@@ -42,7 +42,21 @@
         $scope.authors = {};
         $scope.requiredAuthors = [];
         $scope.addRequiredAuthor = function (arg) {
+            for (var i = 0; i < $scope.authors.length; i++) {
+                if ($scope.authors[i].name == arg) {
+                    $scope.authors[i].invisible = true;
+                }
+            }
             $scope.requiredAuthors.push(arg);
+        };
+        $scope.removeRequiredAuthor = function (arg) {
+            for (var i = 0; i < $scope.requiredAuthors.length; i++) {
+                if ($scope.requiredAuthors[i] == arg) {
+                    $scope.requiredAuthors.splice(i, 1);
+                    $scope.authors[i].invisible = false;
+                }
+            }
+
         };
         $http.get('data/data.authors.json').success(function (data) {
             $scope.authors = data;
@@ -51,8 +65,8 @@
             $scope.authors.push($scope.author);
             $scope.author = {};
         };
-        $scope.addBook = function () {debugger;
-            $scope.books.author = $scope.requiredAuthors;
+        $scope.addBook = function () {
+            $scope.book.author = $scope.requiredAuthors;
             $scope.books.push($scope.book);
 //            $http.put('data/data.books.json', this.books);
             $scope.requiredAuthors = [];
@@ -65,9 +79,23 @@
                 }
             }
         };
+        $scope.restoreAuthors = function (arg) {
+            for (var i = 0; i < $scope.authors.length; i++) {
+                $scope.authors[i].invisible = false;
+            }
+            $scope.cleanModel(arg);
+        };
         $scope.editEntry = function() {
 
         };
+        $scope.cleanModel = function(arg) {
+            if (typeof arg == "object") {
+                arg = {};
+            }
+            else {
+                $scope['arg'] = [];
+            }
+        }
     }])
     .directive('appControls', function() {
         return {
@@ -105,3 +133,8 @@
 
     ]
 })();
+//todo реализовать localstorage
+//удаление
+//валидация + валидация ид книги
+//редактирование
+//добавление автора

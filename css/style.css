@@ -79,4 +79,7 @@ body {
     font-size: 12px;
     margin-left: 3px;
 }
+.ng-invalid.ng-dirty {
+    border-color: red;
+}
 
