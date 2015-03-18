@@ -1,8 +1,4 @@
 AngularApp.controller('appController', ['$scope', function ($scope) {
-    $scope.activeTab = 1;
-    $scope.setTab = function (arg) {
-        $scope.activeTab = arg;
-    };
 
     $scope.displayDialogContent = {
         displayAddAuthor: false,

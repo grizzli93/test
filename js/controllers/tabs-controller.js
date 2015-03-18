@@ -1,6 +1,10 @@
 AngularApp.controller('tabsController', ['$scope', function ($scope) {
-    $scope.activeTab = 1;
+    $scope.activeTab = localStorage['activeTab'] || 1;
+
     $scope.setTab = function (arg) {
-        $scope.activeTab = arg;
+        localStorage['activeTab'] = JSON.stringify(arg);
+        $scope.activeTab = localStorage['activeTab'];
     };
+
+
 }]);
