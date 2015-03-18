@@ -9,6 +9,7 @@ AngularApp.controller('appController', ['$scope', function ($scope) {
         displayAddBook: false,
         displayConfirmationDialog: false
     };
+
     $scope.displayContent = function (content) {
         $.each($scope.displayDialogContent, function (key, value) {
             $scope.displayDialogContent[key] = false;
@@ -16,6 +17,7 @@ AngularApp.controller('appController', ['$scope', function ($scope) {
         $scope.displayDialogContent[content] = true;
         return false;
     };
+
     $scope.returnCurrentDialogTitle = function () {
         var result;
         $.each($scope.displayDialogContent, function (key, value) {
@@ -35,4 +37,4 @@ AngularApp.controller('appController', ['$scope', function ($scope) {
         });
         return result;
     };
-}])
+}]);
