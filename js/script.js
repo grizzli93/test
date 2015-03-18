@@ -96,9 +96,9 @@
         };
 
         $scope.book = {};
-        $scope.books = $scope.getCollection('myBooksCollection') || {};
+        $scope.books = $scope.getCollection('myBooksCollection') || [];
         $scope.author = {};
-        $scope.authors = $scope.getCollection('myAuthorsCollection') || {};
+        $scope.authors = $scope.getCollection('myAuthorsCollection') || [];
         $scope.requiredAuthors = [];
 
         $scope.addRequiredAuthor = function (arg) {
@@ -122,18 +122,21 @@
                 }
             }
         };
-        $scope.addAuthor = function () {
+        $scope.addAuthor = function () {debugger;
             $scope.authors.push($scope.author);
+            $scope.saveCollection('myBooksCollection', $scope.authors);
             $scope.author = {};
+            $scope.authors = $scope.getCollection('myAuthorsCollection') || [];
+
         };
 
-        $scope.addBook = function () {
+        $scope.addBook = function () {debugger;
             $scope.book.author = $scope.requiredAuthors;
             $scope.books.push($scope.book);
             $scope.saveCollection('myBooksCollection', $scope.books);
             $scope.requiredAuthors = [];
             $scope.book = {};
-            $scope.books = $scope.getCollection('myBooksCollection') || {};
+            $scope.books = $scope.getCollection('myBooksCollection') || [];
         };
 
         $scope.getAuthorId = function(arg) {
@@ -231,9 +234,9 @@
 //валидация + валидация ид книги
 //редактирование
 //добавление автора
-//почему разбиваются букви
+//почему разбиваются буквы
 //обложка?
 //сортировка?
-//цикли наше все?
+//циклы наше все?
 //асинхронность
 //механизм замещения но не роут
