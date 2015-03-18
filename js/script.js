@@ -44,7 +44,7 @@
             });
             result = 'test';
             return result;
-        }
+        };
     }])
 
     .directive('addBook', function () {
@@ -95,6 +95,8 @@
                 $scope.saveCollection('myAuthorsCollection', data);
             });
         }
+        $scope.idToRemove = '';
+        $scope.typeToRemove = '';
         $scope.book = {};
         $scope.books = $scope.getCollection('myBooksCollection') || {};
         $scope.author = {};
@@ -128,15 +130,6 @@
             $scope.book = {};
             $scope.books = $scope.getCollection('myBooksCollection') || {};
         };
-        $scope.removeBook = function (arg) {
-            for (var i = 0; i < $scope.books.length; i++) {
-                if ($scope.books[i].id == arg) {
-                    $scope.books.splice(i, 1);
-                    $scope.saveCollection('myBooksCollection', $scope.books);
-                    return false;
-                }
-            }
-        };
         $scope.getAuthorId = function(arg) {
             for (var i = 0; i < $scope.authors.length; i++) {
                 if ($scope.authors[i].name == arg) {
@@ -160,6 +153,28 @@
             else {
                 $scope['arg'] = [];
             }
+        };
+        $scope.removeItem = function (id, type) {
+            if (type == 'book') {
+                for (var i = 0; i < $scope.books.length; i++) {
+                    if ($scope.books[i].id == id) {
+                        $scope.books.splice(i, 1);
+                        $scope.saveCollection('myBooksCollection', $scope.books);
+                        return false;
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < $scope.authors.length; i++) {
+                    if ($scope.authors[i].id == id) {
+                        $scope.authors.splice(i, 1);
+                        $scope.saveCollection('myAuthorsCollection', $scope.authors);
+                        return false;
+                    }
+                }
+            }
+            $scope.idToRemove = null;
+            $scope.typeToRemove = null;
         };
     }])
     .directive('appControls', function() {
