@@ -19,6 +19,32 @@
             $scope.activeTab = arg;
         };
         $scope.activeTab = 1;
+        $scope.displayDialogContent = {
+            displayAddAuthor: false,
+            displayAddBook: false,
+            displayConfirmationDialog: false
+        };
+        $scope.displayContent = function (content) {
+            $.each($scope.displayDialogContent, function(key , value) {
+                $scope.displayDialogContent[key]  = false;
+            });
+            $scope.displayDialogContent[content] = true;
+            return false;
+        };
+        $scope.returnCurrentDialogTitle = function(arg) {
+            var result;
+            $.each($scope.displayDialogContent, function(key , value) {
+                if ($scope.displayDialogContent[key]) {
+                    switch (arg) {
+                        case 'displayAddAuthor': result = 'Add author'; break;
+                        case 'displayAddBook': result = 'Add book'; break;
+                        case 'displayConfirmationDialog': result = 'Confirm your action'; break;
+                    }
+                }
+            });
+            result = 'test';
+            return result;
+        }
     }])
 
     .directive('addBook', function () {
@@ -32,6 +58,20 @@
         return {
             restrict: 'E',
             templateUrl: 'templates/add-author.html'
+        }
+    })
+
+    .directive('addBookFooter', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/add-book-footer.html'
+        }
+    })
+
+    .directive('addAuthorFooter', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/add-author-footer.html'
         }
     })
 
@@ -88,17 +128,19 @@
             $scope.book = {};
             $scope.books = $scope.getCollection('myBooksCollection') || {};
         };
-        $scope.getAuthorId = function(arg) {
-            for (var i = 0; i < $scope.authors.length; i++) {
-                if ($scope.authors[i].name == arg) {
-                    return $scope.authors[i].id;
-                }
-            }
-        };
         $scope.removeBook = function (arg) {
             for (var i = 0; i < $scope.books.length; i++) {
                 if ($scope.books[i].id == arg) {
                     $scope.books.splice(i, 1);
+                    $scope.saveCollection('myBooksCollection', $scope.books);
+                    return false;
+                }
+            }
+        };
+        $scope.getAuthorId = function(arg) {
+            for (var i = 0; i < $scope.authors.length; i++) {
+                if ($scope.authors[i].name == arg) {
+                    return $scope.authors[i].id;
                 }
             }
         };
@@ -126,10 +168,31 @@
             scope: false,
             templateUrl: 'templates/app-controls.html'
         }
-    });
+    })
+
+    .directive('dialogWrapper', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/dialog.html'
+        }
+    })
+
+    .directive('confirmation', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/confirmation.html'
+        }
+    })
+
+    .directive('confirmationFooter', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/confirmation-footer.html'
+        }
+    })
+
 })();
-//todo реализовать localstorage
-//удаление
+//todo
 //валидация + валидация ид книги
 //редактирование
 //добавление автора
@@ -138,4 +201,4 @@
 //сортировка?
 //цикли наше все?
 //асинхронность
-//
+//механизм замещения но не роут

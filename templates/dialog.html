@@ -1,0 +1,20 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="booksController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{returnCurrentDialogTitle()}}</h4>
+            </div>
+            <div class="modal-body">
+                <add-book ng-show="displayDialogContent.displayAddBook"></add-book>
+                <add-author ng-show="displayDialogContent.displayAddAuthor"></add-author>
+                <confirmation ng-show="displayDialogContent.displayConfirmationDialog"></confirmation>
+            </div>
+            <div class="modal-footer">
+                <add-book-footer ng-show="displayDialogContent.displayAddBook"></add-book-footer>
+                <add-author-footer ng-show="displayDialogContent.displayAddAuthor"></add-author-footer>
+                <confirmation-footer ng-show="displayDialogContent.displayConfirmationDialog"></confirmation-footer>
+            </div>
+        </div>
+    </div>
+</div>
