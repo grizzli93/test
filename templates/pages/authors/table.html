@@ -3,12 +3,17 @@
     <tr>
         <th>Authors ID</th>
         <th>ID</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="authors in authors">
         <td>{{authors.id}}</td>
         <td>{{authors.name}}</td>
+        <td>
+            <span class="glyphicon glyphicon-edit"></span>
+            <span class="glyphicon glyphicon-trash"></span>
+        </td>
     </tr>
     </tbody>
 </table>

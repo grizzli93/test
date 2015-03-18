@@ -1,7 +1,18 @@
 (function () {
-    window.app = angular.module('newModule', ['ngRoute']);
-
-        app.controller('appController', ['$scope', function ($scope) {
+    var app = angular.module('newModule', ['ngRoute']);
+        app.config(['$routeProvider', function ($routeProvider) {
+            $routeProvider
+                .when('/books', {
+                    templateUrl: 'templates/pages/books/table.html'
+                })
+                .when('/authors', {
+                    templateUrl: 'templates/pages/authors/table.html'
+                })
+                .otherwise({
+                    redirectTo: '/books'
+                });
+        }])
+        .controller('appController', ['$scope', function ($scope) {
             $scope.activeTab = 1;
             $scope.setTab = function (arg) {
                 $scope.activeTab = arg;
@@ -66,7 +77,6 @@
             };
 
             $scope.removeItem = function (id, type) {
-                debugger;
                 if (type == 'book') {
                     for (var i = 0; i < $scope.books.length; i++) {
                         if ($scope.books[i].id == id) {
@@ -117,9 +127,8 @@
                 }
             };
             $scope.addAuthor = function () {
-                debugger;
                 $scope.authors.push($scope.author);
-                $scope.saveCollection('myBooksCollection', $scope.authors);
+                $scope.saveCollection('myAuthorsCollection', $scope.authors);
                 $scope.author = {};
                 $scope.authors = $scope.getCollection('myAuthorsCollection') || [];
 
