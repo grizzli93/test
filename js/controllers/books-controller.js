@@ -5,6 +5,7 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
             return JSON.parse(localStorage[collection]);
         }
     };
+
     $scope.saveCollection = function (collection, data) {
         localStorage[collection] = JSON.stringify(data);
     };
@@ -30,6 +31,7 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
             }
         }
     };
+
     $scope.addAuthor = function () {
         $scope.authors.push($scope.author);
         $scope.saveCollection('myAuthorsCollection', $scope.authors);
