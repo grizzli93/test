@@ -9,21 +9,6 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
         localStorage[collection] = JSON.stringify(data);
     };
 
-    if (!$scope.getCollection('myBooksCollection')) {
-        $http.get('data/data.books.json').success(function (data) {
-            $scope.saveCollection('myBooksCollection', data);
-        });
-    }
-    if (!$scope.getCollection('myAuthorsCollection')) {
-        $http.get('data/data.authors.json').success(function (data) {
-            $scope.saveCollection('myAuthorsCollection', data);
-        });
-    }
-    $scope.itemToRemove = {
-        idToRemove: '',
-        typeToRemove: ''
-    };
-
     $scope.addRequiredAuthor = function (arg) {
         for (var i = 0; i < $scope.authors.length; i++) {
             if ($scope.authors[i].name == arg) {
@@ -113,10 +98,24 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
         $scope.typeToRemove = '';
     };
 
+    if (!$scope.getCollection('myBooksCollection')) {
+        $http.get('data/data.books.json').success(function (data) {
+            $scope.saveCollection('myBooksCollection', data);
+        });
+    }
+    if (!$scope.getCollection('myAuthorsCollection')) {
+        $http.get('data/data.authors.json').success(function (data) {
+            $scope.saveCollection('myAuthorsCollection', data);
+        });
+    }
+
     $scope.book = {};
     $scope.books = $scope.getCollection('myBooksCollection') || [];
     $scope.author = {};
     $scope.authors = $scope.getCollection('myAuthorsCollection') || [];
     $scope.requiredAuthors = [];
-
+    $scope.itemToRemove = {
+        idToRemove: '',
+        typeToRemove: ''
+    };
 }]);
