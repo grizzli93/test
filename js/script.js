@@ -36,16 +36,18 @@
     })
 
     .controller('booksController', ['$http','$scope', function ($http, $scope) {
-        $scope.getCollection = function(collection) {debugger;
-            return JSON.parse(localStorage[collection]);
+        $scope.getCollection = function(collection) {
+            if (localStorage[collection]) {
+                return JSON.parse(localStorage[collection]);
+            }
         };
-        $scope.saveCollection = function(collection) {
-            localStorage[collection] = JSON.stringify($scope.books);
+        $scope.saveCollection = function(collection, data) {
+            localStorage[collection] = JSON.stringify(data);
         };
 
         if (!$scope.getCollection('myBooksCollection')) {
-            $http.get('data/data.books.json').success(function (data) {debugger;
-                $scope.saveCollection(data);
+            $http.get('data/data.books.json').success(function (data) {
+                $scope.saveCollection('myBooksCollection', data);
             });
         }
         $scope.book = {};
