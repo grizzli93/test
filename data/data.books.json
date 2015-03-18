@@ -1,27 +1,26 @@
 [
-    {
-        "author": ["A.Cash"],
-        "date": "1998",
-        "name": "Winter",
-        "id": 1
-    },
-    {
-        "author": ["C.Town"],
-        "date": "1994",
-        "name": "Autumn",
-        "id": 2
-    },
-    {
-        "author": ["B.Sky"],
-        "date": "1988",
-        "name": "Desert",
-        "id": 3
-    },
-    {
-        "author": [2,5],
-        "date": "2000",
-        "name": "Forest",
-        "id": 4
-    }
-
+  {
+    "author": "A.Cash",
+    "date": "1998",
+    "name": "Winter",
+    "id": 1
+  },
+  {
+    "author": "C.Town",
+    "date": "1994",
+    "name": "Autumn",
+    "id": 2
+  },
+  {
+    "author": "B.Sky",
+    "date": "1988",
+    "name": "Desert",
+    "id": 3
+  },
+  {
+    "author": "F.Road",
+    "date": "2000",
+    "name": "Forest",
+    "id": 4
+  }
 ]

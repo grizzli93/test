@@ -36,8 +36,20 @@
     })
 
     .controller('booksController', ['$http','$scope', function ($http, $scope) {
+        $scope.getCollection = function(collection) {debugger;
+            return JSON.parse(localStorage[collection]);
+        };
+        $scope.saveCollection = function(collection) {
+            localStorage[collection] = JSON.stringify($scope.books);
+        };
+
+        if (!$scope.getCollection('myBooksCollection')) {
+            $http.get('data/data.books.json').success(function (data) {debugger;
+                $scope.saveCollection(data);
+            });
+        }
         $scope.book = {};
-        $scope.books = books;
+        $scope.books = $scope.getCollection('myBooksCollection');
         $scope.author = {};
         $scope.authors = {};
         $scope.requiredAuthors = [];
@@ -56,11 +68,7 @@
                     $scope.authors[i].invisible = false;
                 }
             }
-
         };
-        $http.get('data/data.authors.json').success(function (data) {
-            $scope.authors = data;
-        });
         $scope.addAuthor = function () {
             $scope.authors.push($scope.author);
             $scope.author = {};
@@ -68,7 +76,7 @@
         $scope.addBook = function () {
             $scope.book.author = $scope.requiredAuthors;
             $scope.books.push($scope.book);
-//            $http.put('data/data.books.json', this.books);
+            $scope.saveCollection($scope.books);
             $scope.requiredAuthors = [];
             $scope.book = {};
         };
@@ -102,7 +110,7 @@
             else {
                 $scope['arg'] = [];
             }
-        }
+        };
     }])
     .directive('appControls', function() {
         return {
@@ -111,34 +119,6 @@
             templateUrl: 'templates/app-controls.html'
         }
     });
-
-    var books = [
-        {
-            "author": "A.Cash",
-            "date": "1998",
-            "name": "Winter",
-            "id": 1
-        },
-        {
-            "author": "C.Town",
-            "date": "1994",
-            "name": "Autumn",
-            "id": 2
-        },
-        {
-            "author": "B.Sky",
-            "date": "1988",
-            "name": "Desert",
-            "id": 3
-        },
-        {
-            "author": "F.Road",
-            "date": "2000",
-            "name": "Forest",
-            "id": 4
-        }
-
-    ]
 })();
 //todo реализовать localstorage
 //удаление
