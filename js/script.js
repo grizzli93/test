@@ -1,20 +1,7 @@
 (function () {
-    var app = angular.module('newModule', ['ngRoute']);
+    window.app = angular.module('newModule', ['ngRoute']);
 
-    app.config(['$routeProvider', function ($routeProvider) {
-        $routeProvider
-            .when('/books', {
-                templateUrl: 'templates/pages/books/table.html'
-            })
-            .when('/authors', {
-                templateUrl: 'templates/pages/authors/table.html'
-            })
-            .otherwise({
-                redirectTo: '/books'
-            });
-    }])
-
-        .controller('appController', ['$scope', function ($scope) {
+        app.controller('appController', ['$scope', function ($scope) {
             $scope.activeTab = 1;
             $scope.setTab = function (arg) {
                 $scope.activeTab = arg;
@@ -139,7 +126,6 @@
             };
 
             $scope.addBook = function () {
-                debugger;
                 $scope.book.author = $scope.requiredAuthors;
                 $scope.books.push($scope.book);
                 $scope.saveCollection('myBooksCollection', $scope.books);
