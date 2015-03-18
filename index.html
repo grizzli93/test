@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="newModule">
+<html ng-app="newModule" >
     <head lang="en">
         <meta charset="UTF-8">
         <title>Books</title>
@@ -7,8 +7,11 @@
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
     </head>
     <body ng-controller="appController">
+    <div ng-controller="booksController">
         <app-controls></app-controls>
         <dialog-wrapper></dialog-wrapper>
+    </div>
+
     </body>
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/angular.min.js"></script>

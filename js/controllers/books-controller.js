@@ -42,8 +42,9 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
 
     $scope.addBook = function () {
         $scope.book.author = $scope.requiredAuthors;
-        $scope.books.push($scope.book);
+        $scope.books.push($scope.book);console.log(1);
         $scope.saveCollection('myBooksCollection', $scope.books);
+
         $scope.requiredAuthors = [];
         $scope.book = {};
         $scope.books = $scope.getCollection('myBooksCollection') || [];
