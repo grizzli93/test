@@ -15,6 +15,7 @@
     }])
 
     .controller('appController', ['$scope', function ($scope) {
+        $scope.activeTab = 1;
         $scope.setTab = function (arg) {
             $scope.activeTab = arg;
         };
@@ -31,18 +32,18 @@
             $scope.displayDialogContent[content] = true;
             return false;
         };
-        $scope.returnCurrentDialogTitle = function(arg) {
+        $scope.returnCurrentDialogTitle = function() {
             var result;
             $.each($scope.displayDialogContent, function(key , value) {
                 if ($scope.displayDialogContent[key]) {
-                    switch (arg) {
+                    switch (key) {
                         case 'displayAddAuthor': result = 'Add author'; break;
                         case 'displayAddBook': result = 'Add book'; break;
                         case 'displayConfirmationDialog': result = 'Confirm your action'; break;
                     }
                 }
             });
-            result = 'test';
+//            result = 'test';
             return result;
         };
     }])
@@ -100,7 +101,6 @@
             typeToRemove: ''
         };
 
-        $scope.activeTab = 1;
         $scope.removeItem = function (id, type) {debugger;
             if (type == 'book') {
                 for (var i = 0; i < $scope.books.length; i++) {
