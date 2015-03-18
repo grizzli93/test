@@ -50,10 +50,15 @@
                 $scope.saveCollection('myBooksCollection', data);
             });
         }
+        if (!$scope.getCollection('myAuthorsCollection')) {
+            $http.get('data/data.authors.json').success(function (data) {
+                $scope.saveCollection('myAuthorsCollection', data);
+            });
+        }
         $scope.book = {};
-        $scope.books = $scope.getCollection('myBooksCollection');
+        $scope.books = $scope.getCollection('myBooksCollection') || {};
         $scope.author = {};
-        $scope.authors = {};
+        $scope.authors = $scope.getCollection('myAuthorsCollection') || {};
         $scope.requiredAuthors = [];
         $scope.addRequiredAuthor = function (arg) {
             for (var i = 0; i < $scope.authors.length; i++) {
@@ -78,9 +83,10 @@
         $scope.addBook = function () {
             $scope.book.author = $scope.requiredAuthors;
             $scope.books.push($scope.book);
-            $scope.saveCollection($scope.books);
+            $scope.saveCollection('myBooksCollection', $scope.books);
             $scope.requiredAuthors = [];
             $scope.book = {};
+            $scope.books = $scope.getCollection('myBooksCollection') || {};
         };
         $scope.getAuthorId = function(arg) {
             for (var i = 0; i < $scope.authors.length; i++) {
@@ -131,6 +137,5 @@
 //обложка?
 //сортировка?
 //цикли наше все?
-//No results found for
-//
+//асинхронность
 //
