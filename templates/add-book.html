@@ -1,45 +1,39 @@
-<div class="modal-body">
-    <form id="add-book-block" name="addBookForm"><!--ng-submit=""-->
-        <div>
-            <label for="addbook-book-id">Book ID</label>
-            <input type="number" id="addbook-book-id" min="0" ng-model="book.id" required/>
-        </div>
-        <div>
-            <label for="addbook-book-name">Book name</label>
-            <input type="text" id="addbook-book-name" ng-model="book.name" required/>
-        </div>
-        <div>
-            <label for="addbook-book-date">Date</label>
-            <input type="number" id="addbook-book-date"
-                   ng-model="book.date" min="1000" max="2015" required/>
-        </div>
-        <div>
-            <span>
-                <label>Authors</label>
-                <span class="author-wrapper" ng-repeat="requiredAuthor in requiredAuthors">{{requiredAuthor}}<span class="glyphicon glyphicon-remove" ng-click="removeRequiredAuthor(requiredAuthor)"></span>
-                </span>
+<form id="add-book-block" name="addBookForm"><!--ng-submit=""-->
+    <div>
+        <label for="addbook-book-id">Book ID</label>
+        <input type="number" id="addbook-book-id" min="0" ng-model="book.id" required/>
+    </div>
+    <div>
+        <label for="addbook-book-name">Book name</label>
+        <input type="text" id="addbook-book-name" ng-model="book.name" required/>
+    </div>
+    <div>
+        <label for="addbook-book-date">Date</label>
+        <input type="number" id="addbook-book-date"
+               ng-model="book.date" min="1000" max="2015"  required/>
+    </div>
+    <div>
+        <span>
+            <label>Authors</label>
+            <span class="author-wrapper" ng-repeat="requiredAuthor in requiredAuthors">{{requiredAuthor}}<span class="glyphicon glyphicon-remove" ng-click="removeRequiredAuthor(requiredAuthor)"></span>
             </span>
-        </div>
+        </span>
+    </div>
+    <div>
         <div>
-            <div>
-                <table class="table table-hover table-bordered">
-                    <tr>
-                        <td>
-                            <label class="searchlabel-author">Author</label>
-                            <input type="text" ng-model="authorsFilter.name"/>
-                        </td>
-                    </tr>
-                    <tr ng-repeat="author in data.authors | filter:authorsFilter">
-                        <td ng-hide="author.invisible" >{{author.name}}<span ng-click="addRequiredAuthor(author.name)" class="glyphicon glyphicon-plus author-add"></span></td>
-                    </tr>
-                </table>
-            </div>
-    <!--ng-options="authors.name as authors.name for authors in authors"-->
-    <!--<option value="" ng-if="false"></option>-->
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <td>
+                        <label class="searchlabel-author">Author</label>
+                        <input type="text" ng-model="authorsFilter.name"/>
+                    </td>
+                </tr>
+                <tr ng-repeat="author in authors | filter:authorsFilter">
+                    <td ng-hide="author.invisible" >{{author.name}}<span ng-click="addRequiredAuthor(author.name)" class="glyphicon glyphicon-plus author-add"></span></td>
+                </tr>
+            </table>
         </div>
-    </form>
-</div>
-<div class="modal-footer">
-    <input type="submit" value="Save book" class="btn btn-warning" ng-click="addBook()"/>
-    <input type="button" data-dismiss="modal" class="btn btn-warning" value="Cancel" ng-click="restoreAuthors(book)">
-</div>
+<!--ng-options="authors.name as authors.name for authors in authors"-->
+<!--<option value="" ng-if="false"></option>-->
+    </div>
+</form>
