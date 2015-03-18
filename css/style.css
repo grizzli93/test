@@ -26,7 +26,7 @@ select {
     color: #ff5b67;
 }
 .glyphicon-trash:hover {
-    color: #000000;
+    color: orange;
 }
 .glyphicon-ok:hover {
     color: green;
@@ -79,7 +79,7 @@ body {
     font-size: 12px;
     margin-left: 3px;
 }
-.ng-invalid.ng-dirty {
-    border-color: red;
-}
+/*.ng-invalid.ng-dirty {*/
+    /*border-color: red;*/
+/*}*/
 
