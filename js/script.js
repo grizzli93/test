@@ -43,38 +43,9 @@
                     }
                 }
             });
-//            result = 'test';
             return result;
         };
     }])
-
-    .directive('addBook', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'templates/add-book.html'
-        }
-    })
-
-    .directive('addAuthor', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'templates/add-author.html'
-        }
-    })
-
-    .directive('addBookFooter', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'templates/add-book-footer.html'
-        }
-    })
-
-    .directive('addAuthorFooter', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'templates/add-author-footer.html'
-        }
-    })
 
     .controller('booksController', ['$http','$scope', function ($http, $scope) {
         $scope.getCollection = function(collection) {
@@ -123,6 +94,7 @@
             $scope.idToRemove = '';
             $scope.typeToRemove = '';
         };
+
         $scope.book = {};
         $scope.books = $scope.getCollection('myBooksCollection') || {};
         $scope.author = {};
@@ -193,6 +165,10 @@
         };
     }])
 
+    /**
+     * Directives
+     * */
+
     .directive('appControls', function() {
         return {
             restrict: 'E',
@@ -219,6 +195,34 @@
         return {
             restrict: 'E',
             templateUrl: 'templates/confirmation-footer.html'
+        }
+    })
+
+    .directive('addBook', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/add-book.html'
+        }
+    })
+
+    .directive('addAuthor', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/add-author.html'
+        }
+    })
+
+    .directive('addBookFooter', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/add-book-footer.html'
+        }
+    })
+
+    .directive('addAuthorFooter', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/add-author-footer.html'
         }
     })
 
