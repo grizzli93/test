@@ -6,7 +6,8 @@ var AngularApp = angular.module('newModule', ['ngRoute'])
         return {
             restrict: 'E',
             scope: false,
-            templateUrl: 'templates/app-controls.html'
+            templateUrl: 'templates/app-controls.html',
+            controller: 'tabsController'
         }
     })
 
