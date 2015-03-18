@@ -79,6 +79,13 @@
                 }
             }
         };
+        $scope.removeBook = function (arg) {
+            for (var i = 0; i < $scope.books.length; i++) {
+                if ($scope.books[i].id == arg) {
+                    $scope.books.splice(i, 1);
+                }
+            }
+        };
         $scope.restoreAuthors = function (arg) {
             for (var i = 0; i < $scope.authors.length; i++) {
                 $scope.authors[i].invisible = false;
@@ -138,3 +145,10 @@
 //валидация + валидация ид книги
 //редактирование
 //добавление автора
+//почему разбиваются букви
+//обложка?
+//сортировка?
+//цикли наше все?
+//No results found for
+//
+//

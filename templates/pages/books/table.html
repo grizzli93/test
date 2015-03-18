@@ -14,13 +14,14 @@
         <tbody>
         <tr ng-repeat="books in books | filter:search">
             <td>{{books.name}}</td>
-            <td><span ng-repeat="authors in books.author">{{authors}}{{$last ? '' : ', '}}</span></td>
+            <td><span ng-repeat="authors in books.author">{{authors}}</span></td>
+            <!--{{$last ? '' : ', '}}-->
             <td>{{books.date}}</td>
             <td>{{books.id}}</td>
             <td>{{getAuthorId(books.author)}}</td>
             <td>
                 <span class="glyphicon glyphicon-edit" ng-click="editEntry"></span>
-                <span class="glyphicon glyphicon-remove"></span>
+                <span class="glyphicon glyphicon-remove" ng-click="removeBook(books.id)"></span>
                 <span ng-hide="true" class="glyphicon glyphicon-trash"></span>
                 <span ng-hide="true" class="glyphicon glyphicon-ok"></span>
             </td>
@@ -28,8 +29,14 @@
         </tbody>
     </table>
 
-    <div ng-show="!((books | filter:search).length)" class="bg-danger notfound">
-        <span class="glyphicon glyphicon-alert"></span>
-        <span>No results found for {{search.$}}</span>
+    <div ng-show="!((books | filter:search).length)">
+        <div ng-show="books.length" class="bg-danger notfound">
+            <span class="glyphicon glyphicon-alert"></span>
+            <span>No results found for {{search.$}}</span>
+        </div>
+        <div ng-hide="books.length" class="bg-danger notfound">
+            <span class="glyphicon glyphicon-alert"></span>
+            <span>No books found in library</span>
+        </div>
     </div>
 </div>
