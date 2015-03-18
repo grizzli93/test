@@ -9,7 +9,7 @@
     <li role="presentation" ng-class="{active : activeTab == 2}" ng-click="setTab(2)"><a href="#/authors">Show authors list</a></li>
 </ul>
 <!--ng-include="'table.html'"-->
-<div ng-view></div>
+<div ng-view ng-controller="booksController"></div>
 <div class="control-wrappwer">
     <button id="add-book" class="btn btn-success" data-toggle="modal" data-target="#myModal" ng-click="displayContent('displayAddBook')">
         Add book
