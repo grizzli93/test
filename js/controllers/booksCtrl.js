@@ -45,9 +45,9 @@ AngularApp.controller('booksController', ['$http', '$scope', 'dataService', func
             $dataService.setCollection('myAuthorsCollection', data);
         });
     }
-
-    $scope.books = $dataService.getCollection('myBooksCollection') || [];
-    $scope.authors = $dataService.getCollection('myAuthorsCollection') || [];
+    //
+    //$scope.books = $dataService.getCollection('myBooksCollection') || [];
+    //$scope.authors = $dataService.getCollection('myAuthorsCollection') || [];
 
     $scope.itemToRemove = {
         idToRemove: '',

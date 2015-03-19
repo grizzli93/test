@@ -12,6 +12,6 @@ AngularApp.service('dataService', function() {
 
     return {
         getCollection: getCollection,
-        setCollection: setCollection,
+        setCollection: setCollection
     }
 });

@@ -24,12 +24,10 @@ AngularApp.controller('addBookController', ['$scope', 'dataService', function($s
 
     $scope.addBook = function () {
         $scope.book.author = $scope.requiredAuthors;
-        $scope.books.push($scope.book);console.log(1);
+        $scope.books.push($scope.book);
         $dataService.setCollection('myBooksCollection', $scope.books);
-
         $scope.requiredAuthors = [];
         $scope.book = {};
-        $scope.books = $dataService.getCollection('myBooksCollection') || [];
     };
 
     $scope.restoreAuthors = function (arg) {
