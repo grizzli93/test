@@ -2,8 +2,8 @@ AngularApp
     .directive('appControls', function () {
         return {
             restrict: 'E',
-            scope: false,
-            templateUrl: 'templates/app-controls.html'
+            templateUrl: 'teplates/app-controls.html',
+            scope: false
         }
     })
 
@@ -11,14 +11,17 @@ AngularApp
         return {
             restrict: 'E',
             templateUrl: 'templates/dialog.html',
-            controller: 'dialogController'
+            controller: 'dialogController',
+            scope: false
         }
     })
 
     .directive('confirmation', function () {
         return {
             restrict: 'E',
-            templateUrl: 'templates/confirmation.html'
+            templateUrl: 'templates/confirmation.html',
+            controller: 'deleteController',
+            scope: false
         }
     })
 
