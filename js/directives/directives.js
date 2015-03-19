@@ -11,7 +11,8 @@ AngularApp
     .directive('dialogWrapper', function () {
         return {
             restrict: 'E',
-            templateUrl: 'templates/dialog.html'
+            templateUrl: 'templates/dialog.html',
+            controller: 'dialogController'
         }
     })
 
@@ -26,7 +27,8 @@ AngularApp
         return {
             restrict: 'E',
             templateUrl: 'templates/add-book.html',
-            controller: 'addBookController'
+            controller: 'addBookController',
+            scope: false
         }
     })
 
@@ -34,6 +36,7 @@ AngularApp
         return {
             restrict: 'E',
             templateUrl: 'templates/add-author.html',
-            controller: 'addAuthorController'
+            controller: 'addAuthorController',
+            scope: false
         }
     });

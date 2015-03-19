@@ -1,4 +1,4 @@
-AngularApp.controller('appController', ['$scope', function ($scope) {
+AngularApp.controller('dialogController', ['$scope', function ($scope) {
 
     $scope.displayDialogContent = {
         displayAddAuthor: false,
