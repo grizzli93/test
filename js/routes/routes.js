@@ -1,8 +1,7 @@
 AngularApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/books', {
-            templateUrl: 'templates/pages/books/table.html',
-            controller: 'booksController'
+            templateUrl: 'templates/pages/books/table.html'
         })
         .when('/authors', {
             templateUrl: 'templates/pages/authors/table.html'
