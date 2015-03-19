@@ -11,7 +11,7 @@
         <div>
             <label for="addbook-book-date">Date</label>
             <input type="number" id="addbook-book-date"
-                   ng-model="book.date" min="1000" max="2015"  required/>
+                   ng-model="book.date" min="1000" max="2015" required/>
         </div>
         <div>
             <span>
@@ -29,7 +29,7 @@
                             <input type="text" ng-model="authorsFilter.name"/>
                         </td>
                     </tr>
-                    <tr ng-repeat="author in authors | filter:authorsFilter">
+                    <tr ng-repeat="author in data.authors | filter:authorsFilter">
                         <td ng-hide="author.invisible" >{{author.name}}<span ng-click="addRequiredAuthor(author.name)" class="glyphicon glyphicon-plus author-add"></span></td>
                     </tr>
                 </table>

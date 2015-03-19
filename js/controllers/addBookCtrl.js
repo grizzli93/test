@@ -1,9 +1,9 @@
 AngularApp.controller('addBookController', ['$scope', 'dataService', function($scope, $dataService) {
 
     $scope.addRequiredAuthor = function (arg) {
-        for (var i = 0; i < $scope.authors.length; i++) {
-            if ($scope.authors[i].name == arg) {
-                $scope.authors[i].invisible = true;
+        for (var i = 0; i < $scope.data.authors.length; i++) {
+            if ($scope.data.authors[i].name == arg) {
+                $scope.data.authors[i].invisible = true;
             }
         }
         $scope.requiredAuthors.push(arg);
@@ -15,24 +15,24 @@ AngularApp.controller('addBookController', ['$scope', 'dataService', function($s
                 $scope.requiredAuthors.splice(i, 1);
             }
         }
-        for (var j = 0; j < $scope.authors.length; j++) {
-            if ($scope.authors[j].name == arg) {
-                $scope.authors[j].invisible = false;
+        for (var j = 0; j < $scope.data.authors.length; j++) {
+            if ($scope.data.authors[j].name == arg) {
+                $scope.data.authors[j].invisible = false;
             }
         }
     };
 
     $scope.addBook = function () {
         $scope.book.author = $scope.requiredAuthors;
-        $scope.books.push($scope.book);
-        $dataService.setCollection('myBooksCollection', $scope.books);
+        $scope.data.books.push($scope.book);
+        $dataService.setCollection('myBooksCollection', $scope.data.books);
         $scope.requiredAuthors = [];
         $scope.book = {};
     };
 
     $scope.restoreAuthors = function (arg) {
-        for (var i = 0; i < $scope.authors.length; i++) {
-            $scope.authors[i].invisible = false;
+        for (var i = 0; i < $scope.data.authors.length; i++) {
+            $scope.data.authors[i].invisible = false;
         }
         $scope.cleanModel(arg);
     };
@@ -49,6 +49,8 @@ AngularApp.controller('addBookController', ['$scope', 'dataService', function($s
     $scope.author = {};
     $scope.book = {};
     $scope.requiredAuthors = [];
-    $scope.books = $dataService.getCollection('myBooksCollection') || [];
-    $scope.authors = $dataService.getCollection('myAuthorsCollection') || [];
+    $scope.data = {
+        books: $dataService.getCollection('myBooksCollection') || [],
+        authors: $dataService.getCollection('myAuthorsCollection') || []
+    }
 }]);
