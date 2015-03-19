@@ -2,7 +2,7 @@ AngularApp
     .directive('appControls', function () {
         return {
             restrict: 'E',
-            templateUrl: 'teplates/app-controls.html',
+            templateUrl: 'templates/app-controls.html',
             scope: false
         }
     })
