@@ -2,29 +2,29 @@
     <!--<span>Total items in list: {{((books | filter:search).length)}}</span>-->
     <table class="table table-hover" ng-show="(books | filter:search).length">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Authors</th>
-            <th>Date</th>
-            <th>ID</th>
-            <th>Authors ID</th>
-            <th>Actions</th>
-        </tr>
+            <tr>
+                <th>Name</th>
+                <th>Authors</th>
+                <th>Date</th>
+                <th>ID</th>
+                <th>Authors ID</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="books in books | filter:search">
-            <td>{{books.name}}</td>
-            <td class='authors'><span ng-repeat="authors in books.author">{{authors}}</span></td>
-            <!--{{$last ? '' : ', '}}-->
-            <td>{{books.date}}</td>
-            <td>{{books.id}}</td>
-            <td>{{getAuthorId(books.author)}}</td>
-            <td>
-                <span class="glyphicon glyphicon-edit" ng-click="editEntry"></span>
-                <!--<span class="glyphicon glyphicon-trash" ng-click="removeBook(books.id)"></span>-->
-                <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#myModal"  ng-click="displayContent('displayConfirmationDialog'); itemToRemove.idToRemove = books.id; itemToRemove.typeToRemove = 'book'"></span>
-            </td>
-        </tr>
+            <tr ng-repeat="books in books | filter:search">
+                <td>{{books.name}}</td>
+                <td class='authors'><span ng-repeat="authors in books.author">{{authors}}</span></td>
+                <!--{{$last ? '' : ', '}}-->
+                <td>{{books.date}}</td>
+                <td>{{books.id}}</td>
+                <td>{{getAuthorId(books.author)}}</td>
+                <td>
+                    <span class="glyphicon glyphicon-edit" ng-click="editEntry"></span>
+                    <!--<span class="glyphicon glyphicon-trash" ng-click="removeBook(books.id)"></span>-->
+                    <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#myModal"  ng-click="displayContent('displayConfirmationDialog'); itemToRemove.idToRemove = books.id; itemToRemove.typeToRemove = 'book'"></span>
+                </td>
+            </tr>
         </tbody>
     </table>
 
