@@ -1,14 +1,4 @@
-AngularApp.controller('booksController', ['$http', '$scope', function ($http, $scope) {
-
-    $scope.getCollection = function (collection) {
-        if (localStorage[collection]) {
-            return JSON.parse(localStorage[collection]);
-        }
-    };
-
-    $scope.saveCollection = function (collection, data) {
-        localStorage[collection] = JSON.stringify(data);
-    };
+AngularApp.controller('booksController', ['$http', '$scope', 'booksService', function ($http, $scope, $booksService) {
 
     $scope.addRequiredAuthor = function (arg) {
         for (var i = 0; i < $scope.authors.length; i++) {
@@ -34,20 +24,20 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
 
     $scope.addAuthor = function () {
         $scope.authors.push($scope.author);
-        $scope.saveCollection('myAuthorsCollection', $scope.authors);
+        $booksService.setCollection('myAuthorsCollection', $scope.authors);
         $scope.author = {};
-        $scope.authors = $scope.getCollection('myAuthorsCollection') || [];
+        $scope.authors = $booksService.getCollection('myAuthorsCollection') || [];
 
     };
 
     $scope.addBook = function () {
         $scope.book.author = $scope.requiredAuthors;
         $scope.books.push($scope.book);console.log(1);
-        $scope.saveCollection('myBooksCollection', $scope.books);
+        $booksService.setCollection('myBooksCollection', $scope.books);
 
         $scope.requiredAuthors = [];
         $scope.book = {};
-        $scope.books = $scope.getCollection('myBooksCollection') || [];
+        $scope.books = $booksService.getCollection('myBooksCollection') || [];
     };
 
     $scope.getAuthorId = function (arg) {
@@ -83,7 +73,7 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
             for (var i = 0; i < $scope.books.length; i++) {
                 if ($scope.books[i].id == id) {
                     $scope.books.splice(i, 1);
-                    $scope.saveCollection('myBooksCollection', $scope.books);
+                    $booksService.setCollection('myBooksCollection', $scope.books);
                     return false;
                 }
             }
@@ -92,7 +82,7 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
             for (var i = 0; i < $scope.authors.length; i++) {
                 if ($scope.authors[i].id == id) {
                     $scope.authors.splice(i, 1);
-                    $scope.saveCollection('myAuthorsCollection', $scope.authors);
+                    $booksService.setCollection('myAuthorsCollection', $scope.authors);
                     return false;
                 }
             }
@@ -101,21 +91,21 @@ AngularApp.controller('booksController', ['$http', '$scope', function ($http, $s
         $scope.typeToRemove = '';
     };
 
-    if (!$scope.getCollection('myBooksCollection')) {
+    if (!$booksService.getCollection('myBooksCollection')) {
         $http.get('data/data.books.json').success(function (data) {
-            $scope.saveCollection('myBooksCollection', data);
+            $booksService.setCollection('myBooksCollection', data);
         });
     }
-    if (!$scope.getCollection('myAuthorsCollection')) {
+    if (!$booksService.getCollection('myAuthorsCollection')) {
         $http.get('data/data.authors.json').success(function (data) {
-            $scope.saveCollection('myAuthorsCollection', data);
+            $booksService.setCollection('myAuthorsCollection', data);
         });
     }
 
     $scope.book = {};
-    $scope.books = $scope.getCollection('myBooksCollection') || [];
+    $scope.books = $booksService.getCollection('myBooksCollection') || [];
     $scope.author = {};
-    $scope.authors = $scope.getCollection('myAuthorsCollection') || [];
+    $scope.authors = $booksService.getCollection('myAuthorsCollection') || [];
     $scope.requiredAuthors = [];
     $scope.itemToRemove = {
         idToRemove: '',

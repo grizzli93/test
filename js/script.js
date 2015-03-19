@@ -25,13 +25,6 @@ var AngularApp = angular.module('newModule', ['ngRoute'])
         }
     })
 
-    .directive('confirmationFooter', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'templates/confirmation-footer.html'
-        }
-    })
-
     .directive('addBook', function () {
         return {
             restrict: 'E',
@@ -43,20 +36,6 @@ var AngularApp = angular.module('newModule', ['ngRoute'])
         return {
             restrict: 'E',
             templateUrl: 'templates/add-author.html'
-        }
-    })
-
-    .directive('addBookFooter', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'templates/add-book-footer.html'
-        }
-    })
-
-    .directive('addAuthorFooter', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'templates/add-author-footer.html'
         }
     });
 //todo
