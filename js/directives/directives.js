@@ -3,8 +3,7 @@ AngularApp
         return {
             restrict: 'E',
             scope: false,
-            templateUrl: 'templates/app-controls.html',
-            controller: 'tabsController'
+            templateUrl: 'templates/app-controls.html'
         }
     })
 
