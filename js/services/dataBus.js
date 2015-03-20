@@ -5,10 +5,22 @@ AngularApp.service('dataBus',['dataService', function ($dataService) {
         itemToRemove: '',
         dataToRemove: ''
     };
+    
     this.getMyBooks = function() {
-        this.myBooks = $dataService.getCollection('myBooksCollection');
+        if (this.myBooks.length === 0) {
+            if (!(this.myBooks = $dataService.getCollection('myBooksCollection'))) {
+                this.myBooks = [];
+            }
+        }
+        return this.myBooks;
     };
+
     this.getMyAuthors = function () {
-        this.myAuthors = $dataService.getCollection('myAuthorsCollection');
+        if (this.myAuthors.length === 0) {
+            if (!(this.myAuthors = $dataService.getCollection('myAuthorsCollection'))) {
+                this.myAuthors = [];
+            }
+        }
+        return this.myAuthors;
     };
 }]);
