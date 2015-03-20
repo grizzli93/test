@@ -11,12 +11,12 @@
         <div>
             <label for="addbook-book-date">Date</label>
             <input type="number" id="addbook-book-date"
-                   ng-model="book.date" min="1000" max="2015" required/>
+                   ng-model="book.date" min="1000" max="2015" value="2014" required/>
         </div>
         <div>
             <span>
                 <label>Authors</label>
-                <span class="author-wrapper" ng-repeat="requiredAuthor in requiredAuthors">{{requiredAuthor}}<span class="glyphicon glyphicon-remove" ng-click="removeRequiredAuthor(requiredAuthor)"></span>
+                <span class="author-wrapper" ng-repeat="requiredAuthor in requiredAuthors">{{requiredAuthor.name}}<span class="glyphicon glyphicon-remove" ng-click="removeRequiredAuthor(requiredAuthor)"></span>
                 </span>
             </span>
         </div>

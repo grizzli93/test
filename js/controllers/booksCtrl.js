@@ -4,13 +4,20 @@ AngularApp.controller('booksController', [
     'dataBus',
     function ($http, $scope, $dataBus) {
 
-        //$scope.getAuthorId = function (arg) {
-        //    for (var i = 0; i < $scope.authors.length; i++) {
-        //        if ($scope.authors[i].name == arg) {
-        //            return $scope.authors[i].id;
-        //        }
-        //    }
-        //};
+        $scope.getAuthorById = function (arg) {
+            var argument = [];
+            typeof(arg) == 'number' ? argument.push(arg) : argument = arg;
+
+            var result = [];
+            $.each(argument, function (index, value) {
+                $.each($dataBus.myAuthors, function (index_in, value_in) {
+                    if ($dataBus.myAuthors[index_in].id == argument[index]) {
+                        result.push($dataBus.myAuthors[index_in].name);
+                    }
+                });
+            });
+            return result;
+        };
 
         $scope.editEntry = function () {
 

@@ -11,15 +11,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="books in books | filter:search">
-                <td>{{books.name}}</td>
-                <td class='authors'><span ng-repeat="authors in books.author">{{authors}}</span></td>
+            <tr ng-repeat="book in books | filter:search">
+                <td>{{book.name}}</td>
+                <!--<td class='authors'>{{getAuthorById(book.author)}}</td>-->
+                <td class='authors'><span ng-repeat="author in getAuthorById(book.author)">{{author}}{{$last ? '' : ', '}}</span></td>
+                <!--<td class='authors'><span ng-repeat="author in book.author">{{author}}</span></td>-->
                 <!--{{$last ? '' : ', '}}-->
-                <td>{{books.date}}</td>
-                <td>{{books.id}}</td>
+                <td>{{book.date}}</td>
+                <td>{{book.id}}</td>
                 <td>
                     <span class="glyphicon glyphicon-edit" ng-click="editEntry"></span>
-                    <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#myModal"  ng-click="displayContent('displayConfirmationDialog'); setItemsToRemove(books.id, 'book')"></span>
+                    <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#myModal"  ng-click="displayContent('displayConfirmationDialog'); setItemsToRemove(book.id, 'book')"></span>
                 </td>
             </tr>
         </tbody>
