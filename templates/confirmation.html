@@ -1,9 +1,9 @@
 <div class="modal-body">
     <div class="bg-danger alert">
-        <span>Are you sure that you want to remove</span>
+        <span>Are you sure that you want to remove {{}}</span>
     </div>
     <div class="modal-footer">
-        <input type="submit" data-dismiss="modal"  value="Remove" class="btn btn-warning" ng-model="itemToRemove" ng-click="removeItem(itemToRemove.idToRemove, itemToRemove.typeToRemove)"/>
+        <input type="submit" data-dismiss="modal"  value="Remove" class="btn btn-warning" ng-click="removeItem(dataBus.idToRemove, dataBus.typeToRemove)"/>
         <input type="button" data-dismiss="modal" class="btn btn-warning" value="Cancel"/>
     </div>
 </div>
