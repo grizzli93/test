@@ -8,9 +8,10 @@ function($scope, $dataService, $dataBus) {
         for (var i = 0; i < $scope.data.authors.length; i++) {
             if ($scope.data.authors[i].name == arg) {
                 $scope.data.authors[i].invisible = true;
+                $scope.requiredAuthors.push($scope.data.authors[i]);
+                $scope.requiredAuthorsId.push($scope.data.authors[i].id);
             }
         }
-        $scope.requiredAuthors.push(arg);
     };
 
     $scope.removeRequiredAuthor = function (arg) {
@@ -34,12 +35,12 @@ function($scope, $dataService, $dataBus) {
     };
 
     $scope.addBook = function () {
-        $scope.book.author = $scope.requiredAuthors;
+        $scope.book.author = $scope.requiredAuthorsId;
         $dataBus.myBooks.push($scope.book);
-        console.log($dataBus.myBooks);
         $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
         $dataBus.getMyBooks();
         $scope.requiredAuthors = [];
+        $scope.requiredAuthorsId = [];
         $scope.book = {};
     };
 
@@ -55,6 +56,7 @@ function($scope, $dataService, $dataBus) {
     $scope.author = {};
     $scope.book = {};
     $scope.requiredAuthors = [];
+    $scope.requiredAuthorsId = [];
     $scope.data = {
         books: $dataBus.myBooks || [],
         authors: $dataBus.myAuthors || []
