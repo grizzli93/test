@@ -1,4 +1,4 @@
-AngularApp.controller('dialogController', ['$scope', function ($scope) {
+AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope, $dataBus) {
 
     $scope.displayDialogContent = {
         displayAddAuthor: false,
@@ -13,6 +13,12 @@ AngularApp.controller('dialogController', ['$scope', function ($scope) {
         $scope.displayDialogContent[content] = true;
         return false;
     };
+
+    $scope.setItemsToRemove = function(id, type) {
+        $dataBus.removeItems.itemToRemove = id;
+        $dataBus.removeItems.dataToRemove = type;
+    };
+
 
     $scope.returnCurrentDialogTitle = function () {
         var result;
