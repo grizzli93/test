@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="authors in authors">
+    <tr ng-repeat="authors in authors | filter: search">
         <td>{{authors.id}}</td>
         <td>{{authors.name}}</td>
         <td>
