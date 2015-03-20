@@ -16,26 +16,12 @@ AngularApp.controller('booksController', [
 
         };
 
-//        if (!$dataService.getCollection('myBooksCollection')) {
-//            $http.get('data/data.books.json').then(function (data) {
-//                $dataService.setCollection('myBooksCollection', data.data);
-//                $dataBus.myBooks = data.data;
+        $dataBus.getMyBooks().then(function() {
+            $scope.books =  $dataBus.myBooks;
+        });
 
+        $dataBus.getMyAuthors().then(function(){
+            $scope.authors = $dataBus.myAuthors;
+        });
 
-                $dataBus.getMyBooks().then(function() {
-                    $scope.books =  $dataBus.myBooks;
-                });
-//            });
-//        }
-
-//        if (!($scope.authors = $dataService.getCollection('myAuthorsCollection'))) {
-//            $http.get('data/data.authors.json').then(function (data) {
-//                $dataService.setCollection('myAuthorsCollection', data.data);
-//                $dataBus.myAuthors = data.data;
-
-
-                $dataBus.getMyAuthors();
-                $scope.authors = $dataBus.myAuthors;
-//            });
-//        }
 }]);
