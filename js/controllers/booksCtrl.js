@@ -22,8 +22,9 @@ AngularApp.controller('booksController', [
 //                $dataBus.myBooks = data.data;
 
 
-                $scope.books =  $dataBus.getMyBooks();
-//                $scope.books =  $dataBus.myBooks;
+                $dataBus.getMyBooks().then(function() {
+                    $scope.books =  $dataBus.myBooks;
+                });
 //            });
 //        }
 
@@ -33,8 +34,8 @@ AngularApp.controller('booksController', [
 //                $dataBus.myAuthors = data.data;
 
 
-                $scope.authors = $dataBus.getMyAuthors();
-//                $scope.authors = $dataBus.myAuthors;
+                $dataBus.getMyAuthors();
+                $scope.authors = $dataBus.myAuthors;
 //            });
 //        }
 }]);

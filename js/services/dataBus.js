@@ -1,4 +1,5 @@
-AngularApp.service('dataBus',['dataService', function ($dataService) {
+AngularApp.service('dataBus',['dataService', '$http', '$q', function ($dataService, $http, $q) {
+    var that = this;
     this.myBooks = [];
     this.myAuthors = [];
     this.removeItems =  {
@@ -6,13 +7,32 @@ AngularApp.service('dataBus',['dataService', function ($dataService) {
         dataToRemove: ''
     };
 
+    var deffered = $q.defer();
+
     this.getMyBooks = function() {
-        this.myBooks = $dataService.getCollection('myBooksCollection');
-        return this.myBooks;
+        if (!( this.myBooks = $dataService.getCollection('myBooksCollection'))){
+            $http.get('data/data.books.json')
+                .then(function (data) {
+                    $dataService.setCollection('myBooksCollection', data.data);
+                    that.myBooks = $dataService.getCollection('myBooksCollection');
+                    deffered.resolve();
+                }, function (data) {
+                    deffered.reject(data);
+                });
+        } else {
+            deffered.resolve();
+        }
+        return deffered.promise;
     };
 
     this.getMyAuthors = function () {
-        this.myAuthors = $dataService.getCollection('myAuthorsCollection');
+        if (!( this.myAuthors = $dataService.getCollection('myAuthorsCollection'))){
+            $http.get('data/data.authors.json')
+                .then(function (data) {
+                    $dataService.setCollection('myAuthorsCollection', data.data);
+                    that.myAuthors = $dataService.getCollection('myAuthorsCollection');
+                });
+        }
         return this.myAuthors;
     };
 }]);
