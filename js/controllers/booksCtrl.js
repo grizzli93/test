@@ -1,9 +1,8 @@
 AngularApp.controller('booksController', [
     '$http',
     '$scope',
-    'dataService',
     'dataBus',
-    function ($http, $scope, $dataService, $dataBus) {
+    function ($http, $scope, $dataBus) {
 
         $scope.getAuthorId = function (arg) {
             for (var i = 0; i < $scope.authors.length; i++) {
@@ -21,7 +20,7 @@ AngularApp.controller('booksController', [
 //            $http.get('data/data.books.json').then(function (data) {
 //                $dataService.setCollection('myBooksCollection', data.data);
 //                $dataBus.myBooks = data.data;
-                $scope.books = $dataBus.myBooks;
+                $scope.books =  $dataBus.getMyBooks();
 //            });
 //        }
 
@@ -29,7 +28,7 @@ AngularApp.controller('booksController', [
 //            $http.get('data/data.authors.json').then(function (data) {
 //                $dataService.setCollection('myAuthorsCollection', data.data);
 //                $dataBus.myAuthors = data.data;
-                $scope.authors = $dataBus.myAuthors;
+                $scope.authors = $dataBus.getMyAuthors();
 //            });
 //        }
 }]);
