@@ -1,4 +1,8 @@
-AngularApp.controller('addBookController', ['$scope', 'dataService', 'dataBus', function($scope, $dataService, $dataBus) {
+AngularApp.controller('addBookController', [
+    '$scope',
+    'dataService',
+    'dataBus',
+function($scope, $dataService, $dataBus) {
 
     $scope.addRequiredAuthor = function (arg) {
         for (var i = 0; i < $scope.data.authors.length; i++) {
@@ -22,19 +26,20 @@ AngularApp.controller('addBookController', ['$scope', 'dataService', 'dataBus', 
         }
     };
 
-    $scope.addBook = function () {
-        $scope.book.author = $scope.requiredAuthors;
-        $scope.data.books.push($scope.book);
-        $dataService.setCollection('myBooksCollection', $scope.data.books);
-        $scope.requiredAuthors = [];
-        $scope.book = {};
-    };
-
     $scope.restoreAuthors = function (arg) {
         for (var i = 0; i < $scope.data.authors.length; i++) {
             $scope.data.authors[i].invisible = false;
         }
         $scope.cleanModel(arg);
+    };
+
+    $scope.addBook = function () {
+        $scope.book.author = $scope.requiredAuthors;
+        $scope.data.books.push($scope.book);
+        $dataService.setCollection('myBooksCollection', $scope.data.books);
+        $dataBus.getMyBooks();
+        $scope.requiredAuthors = [];
+        $scope.book = {};
     };
 
     $scope.cleanModel = function (arg) {
