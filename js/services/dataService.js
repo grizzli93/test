@@ -1,4 +1,4 @@
-AngularApp.service('dataService',['$http', function($http) {
+AngularApp.service('dataService', function() {
     this.getCollection = function (collection) {
         if (localStorage[collection]) {
             return JSON.parse(localStorage[collection]);
@@ -9,4 +9,4 @@ AngularApp.service('dataService',['$http', function($http) {
         localStorage[collection] = angular.toJson(data);
     };
 
-}]);
+});

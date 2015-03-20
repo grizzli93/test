@@ -15,7 +15,6 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
     };
 
     $scope.setItemsToRemove = function(id, type) {
-        console.log($dataBus.removeItems);
         $dataBus.removeItems.itemToRemove = id;
         $dataBus.removeItems.dataToRemove = type;
         for (var i = 0; i < $dataBus.myBooks.length; i++) {

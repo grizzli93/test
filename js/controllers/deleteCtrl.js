@@ -2,11 +2,14 @@ AngularApp.controller('deleteController', [
     '$scope',
     'dataBus',
     'dataService',
-    function ($scope, $dataBus, $dataService) {
+    'functionsBus',
+    function ($scope, $dataBus, $dataService, $functionsBus) {
         $scope.removeParams = {
             name: $dataBus.removeItems,
             author: $dataBus.removeItems
         };
+
+        $scope.getAuthorById = $functionsBus.getAuthorById;
 
         $scope.removeItem = function () {
             if ($dataBus.removeItems.dataToRemove == 'book') {

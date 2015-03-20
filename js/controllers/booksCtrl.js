@@ -2,22 +2,10 @@ AngularApp.controller('booksController', [
     '$http',
     '$scope',
     'dataBus',
-    function ($http, $scope, $dataBus) {
+    'functionsBus',
+    function ($http, $scope, $dataBus, $functionsBus) {
 
-        $scope.getAuthorById = function (arg) {
-            var argument = [];
-            typeof(arg) == 'number' ? argument.push(arg) : argument = arg;
-
-            var result = [];
-            $.each(argument, function (index, value) {
-                $.each($dataBus.myAuthors, function (index_in, value_in) {
-                    if ($dataBus.myAuthors[index_in].id == argument[index]) {
-                        result.push($dataBus.myAuthors[index_in].name);
-                    }
-                });
-            });
-            return result;
-        };
+        $scope.getAuthorById = $functionsBus.getAuthorById;
 
         $scope.editEntry = function () {
 
