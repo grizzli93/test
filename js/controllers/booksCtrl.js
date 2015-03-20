@@ -17,7 +17,7 @@ AngularApp.controller('booksController', [
 
         };
 
-        if (!($dataBus.myBooks = $dataService.getCollection('myBooksCollection'))) {
+        if (!($scope.books = $dataService.getCollection('myBooksCollection'))) {
             $http.get('data/data.books.json').then(function (data) {
                 $dataService.setCollection('myBooksCollection', data.data);
                 $dataBus.myBooks = data.data;
@@ -25,7 +25,7 @@ AngularApp.controller('booksController', [
             });
         }
 
-        if (!($dataBus.myAuthors = $dataService.getCollection('myAuthorsCollection'))) {
+        if (!($scope.authors = $dataService.getCollection('myAuthorsCollection'))) {
             $http.get('data/data.authors.json').then(function (data) {
                 $dataService.setCollection('myAuthorsCollection', data.data);
                 $dataBus.myAuthors = data.data;
