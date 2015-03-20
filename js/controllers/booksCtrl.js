@@ -4,7 +4,7 @@ AngularApp.controller('booksController', [
     'dataService',
     'dataBus',
     function ($http, $scope, $dataService, $dataBus) {
-            console.log($dataService);
+
         $scope.getAuthorId = function (arg) {
             for (var i = 0; i < $scope.authors.length; i++) {
                 if ($scope.authors[i].name == arg) {
@@ -19,7 +19,8 @@ AngularApp.controller('booksController', [
 
         if (!($dataBus.myBooks = $dataService.getCollection('myBooksCollection'))) {
             $http.get('data/data.books.json').then(function (data) {
-                $dataService.setCollection('myBooksCollection', data.data);debugger;
+                $dataService.setCollection('myBooksCollection', data.data);
+                $dataBus.myBooks = data.data;
                 $scope.books = $dataBus.myBooks;
             });
         }
@@ -27,6 +28,7 @@ AngularApp.controller('booksController', [
         if (!($dataBus.myAuthors = $dataService.getCollection('myAuthorsCollection'))) {
             $http.get('data/data.authors.json').then(function (data) {
                 $dataService.setCollection('myAuthorsCollection', data.data);
+                $dataBus.myAuthors = data.data;
                 $scope.authors = $dataBus.myAuthors;
             });
         }

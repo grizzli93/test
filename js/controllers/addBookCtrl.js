@@ -1,4 +1,4 @@
-AngularApp.controller('addBookController', ['$scope', 'dataService', function($scope, $dataService) {
+AngularApp.controller('addBookController', ['$scope', 'dataService', 'dataBus', function($scope, $dataService, $dataBus) {
 
     $scope.addRequiredAuthor = function (arg) {
         for (var i = 0; i < $scope.data.authors.length; i++) {
@@ -50,7 +50,7 @@ AngularApp.controller('addBookController', ['$scope', 'dataService', function($s
     $scope.book = {};
     $scope.requiredAuthors = [];
     $scope.data = {
-        books: $dataService.getCollection('myBooksCollection') || [],
-        authors: $dataService.getCollection('myAuthorsCollection') || []
+        books: $dataBus.myBooks || [],
+        authors: $dataBus.myAuthors || []
     }
 }]);
