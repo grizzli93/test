@@ -4,13 +4,13 @@ AngularApp.controller('booksController', [
     'dataBus',
     function ($http, $scope, $dataBus) {
 
-        $scope.getAuthorId = function (arg) {
-            for (var i = 0; i < $scope.authors.length; i++) {
-                if ($scope.authors[i].name == arg) {
-                    return $scope.authors[i].id;
-                }
-            }
-        };
+        //$scope.getAuthorId = function (arg) {
+        //    for (var i = 0; i < $scope.authors.length; i++) {
+        //        if ($scope.authors[i].name == arg) {
+        //            return $scope.authors[i].id;
+        //        }
+        //    }
+        //};
 
         $scope.editEntry = function () {
 

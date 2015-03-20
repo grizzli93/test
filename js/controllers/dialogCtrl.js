@@ -16,9 +16,13 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
 
     $scope.setItemsToRemove = function(id, type) {
         $dataBus.removeItems.itemToRemove = id;
-        $dataBus.removeItems.dataToRemove = type;debugger;
-        $dataBus.removeItems.authorToRemove = $dataBus.myBooks;
-        $dataBus.removeItems.nameToRemove = type;
+        $dataBus.removeItems.dataToRemove = type;
+        for (var i = 0; i < $dataBus.myBooks.length; i++) {
+            if ($dataBus.myBooks[i].id == id) {debugger;
+                $dataBus.removeItems.authorToRemove = $dataBus.myBooks[i].author;
+                $dataBus.removeItems.nameToRemove = $dataBus.myBooks[i].name;
+            }
+        }
     };
 
 
