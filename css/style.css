@@ -79,9 +79,6 @@ body {
     font-size: 12px;
     margin-left: 3px;
 }
-.authors .comma :last-child {
-    display: none;
-}
 .alert {
     margin-bottom: 0!important;
 }
