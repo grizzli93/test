@@ -20,7 +20,10 @@ AngularApp.controller('booksController', [
 //            $http.get('data/data.books.json').then(function (data) {
 //                $dataService.setCollection('myBooksCollection', data.data);
 //                $dataBus.myBooks = data.data;
+
+
                 $scope.books =  $dataBus.getMyBooks();
+//                $scope.books =  $dataBus.myBooks;
 //            });
 //        }
 
@@ -28,7 +31,10 @@ AngularApp.controller('booksController', [
 //            $http.get('data/data.authors.json').then(function (data) {
 //                $dataService.setCollection('myAuthorsCollection', data.data);
 //                $dataBus.myAuthors = data.data;
+
+
                 $scope.authors = $dataBus.getMyAuthors();
+//                $scope.authors = $dataBus.myAuthors;
 //            });
 //        }
 }]);

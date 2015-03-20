@@ -35,9 +35,10 @@ function($scope, $dataService, $dataBus) {
 
     $scope.addBook = function () {
         $scope.book.author = $scope.requiredAuthors;
-        $scope.data.books.push($scope.book);
-        $dataService.setCollection('myBooksCollection', $scope.data.books);
-        $dataBus.getMyBooks();
+        $dataBus.myBooks.push($scope.book);
+        console.log($dataBus.myBooks);
+        $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
+//        $dataBus.getMyBooks();
         $scope.requiredAuthors = [];
         $scope.book = {};
     };

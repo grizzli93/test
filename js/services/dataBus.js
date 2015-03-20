@@ -1,13 +1,13 @@
 AngularApp.service('dataBus',['dataService', function ($dataService) {
     this.myBooks = [];
-    this.myAutors = [];
+    this.myAuthors = [];
     this.removeItems =  {
         itemToRemove: '',
         dataToRemove: ''
     };
 
     this.getMyBooks = function() {
-        this.myBooks = $dataService.getCollection('myBooksCollection');debugger;
+        this.myBooks = $dataService.getCollection('myBooksCollection');
         return this.myBooks;
     };
 

@@ -16,10 +16,9 @@ AngularApp.service('dataService',['$http', function($http) {
             if (collection == 'myAuthorsCollection') {
                 $http.get('data/data.authors.json')
                     .then(function (data) {
-//                        context.setCollection('myAuthorsCollection', data.data);
+                        context.setCollection('myAuthorsCollection', data.data);
                     });
             }
-
         }
     };
 
