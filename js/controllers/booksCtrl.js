@@ -17,19 +17,19 @@ AngularApp.controller('booksController', [
 
         };
 
-        if (!$dataService.getCollection('myBooksCollection')) {
-            $http.get('data/data.books.json').then(function (data) {
-                $dataService.setCollection('myBooksCollection', data.data);
-                $dataBus.myBooks = data.data;
+//        if (!$dataService.getCollection('myBooksCollection')) {
+//            $http.get('data/data.books.json').then(function (data) {
+//                $dataService.setCollection('myBooksCollection', data.data);
+//                $dataBus.myBooks = data.data;
                 $scope.books = $dataBus.myBooks;
-            });
-        } x
+//            });
+//        }
 
-        if (!($scope.authors = $dataService.getCollection('myAuthorsCollection'))) {
-            $http.get('data/data.authors.json').then(function (data) {
-                $dataService.setCollection('myAuthorsCollection', data.data);
-                $dataBus.myAuthors = data.data;
+//        if (!($scope.authors = $dataService.getCollection('myAuthorsCollection'))) {
+//            $http.get('data/data.authors.json').then(function (data) {
+//                $dataService.setCollection('myAuthorsCollection', data.data);
+//                $dataBus.myAuthors = data.data;
                 $scope.authors = $dataBus.myAuthors;
-            });
-        }
+//            });
+//        }
 }]);
