@@ -3,7 +3,8 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
     $scope.displayDialogContent = {
         displayAddAuthor: false,
         displayAddBook: false,
-        displayConfirmationDialog: false
+        displayConfirmationDialog: false,
+        displayEditBook: false
     };
 
     $scope.displayContent = function (content) {
@@ -17,13 +18,25 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
     $scope.setItemsToRemove = function(id, type) {
         $dataBus.removeItems.itemToRemove = id;
         $dataBus.removeItems.dataToRemove = type;
-        for (var i = 0; i < $dataBus.myBooks.length; i++) {
-            if ($dataBus.myBooks[i].id == id) {
-                $dataBus.removeItems.authorToRemove = $dataBus.myBooks[i].author;
-                $dataBus.removeItems.nameToRemove = $dataBus.myBooks[i].name;
+        $.each($dataBus.myBooks, function(index, value) {
+            if ($dataBus.myBooks[index].id == id) {
+                $dataBus.removeItems.authorToRemove = $dataBus.myBooks[index].author;
+                $dataBus.removeItems.nameToRemove = $dataBus.myBooks[index].name;
             }
-        }
+        });
     };
+
+    $scope.setItemsToEdit = function(id, type) {
+        $dataBus.removeItems.itemToRemove = id;
+        $dataBus.removeItems.dataToRemove = type;
+        $.each($dataBus.myBooks, function(index, value) {
+            if ($dataBus.myBooks[index].id == id) {
+                $dataBus.removeItems.authorToRemove = $dataBus.myBooks[index].author;
+                $dataBus.removeItems.nameToRemove = $dataBus.myBooks[index].name;
+            }
+        });
+    };
+
 
 
     $scope.returnCurrentDialogTitle = function () {
@@ -39,6 +52,9 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
                         break;
                     case 'displayConfirmationDialog':
                         result = 'Confirm your action';
+                        break;
+                    case 'displayEditBook':
+                        result = 'Edit book';
                         break;
                 }
             }

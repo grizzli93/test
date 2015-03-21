@@ -41,4 +41,13 @@ AngularApp
             controller: 'addAuthorController',
             scope: false
         }
+    })
+
+    .directive('editBook', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/edit-book.html',
+            controller: 'editBookController',
+            scope: false
+        }
     });
