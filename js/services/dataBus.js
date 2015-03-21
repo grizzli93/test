@@ -12,12 +12,7 @@ AngularApp.service('dataBus', [
             nameToRemove: '',
             authorToRemove: ''
         };
-        this.editItems = {
-            itemToEdit: '',
-            dateToEdit: '',
-            nameToEdit: '',
-            authorToEdit: ''
-        };
+        this.editItems = {};
 
         var deffered = $q.defer();
 

@@ -53,6 +53,10 @@ function($scope, $dataService, $dataBus) {
         }
     };
 
+    $scope.editData = {
+        editBook: $dataBus.editItems
+    };
+
     $scope.author = {};
     $scope.book = {};
     $scope.requiredAuthors = [];

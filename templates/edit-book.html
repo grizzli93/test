@@ -1,17 +1,16 @@
 <div class="modal-body">
     <form id="add-book-block" name="addBookForm">
         <div>
-            <label for="addbook-book-id">Book ID</label>
-            <input type="text" id="addbook-book-id" min="0" required/>
+            <label for="editbook-book-id">Book ID</label>
+            <input type="text" id="editbook-book-id" ng-model="editData.editBook.id" required/>
         </div>
         <div>
-            <label for="addbook-book-name">Book name</label>
-            <input type="text" id="addbook-book-name" required/>
+            <label for="editbook-book-name">Book name</label>
+            <input type="text" id="editbook-book-name" ng-model="editBook.name" required/>
         </div>
         <div>
-            <label for="addbook-book-date">Date</label>
-            <input type="number" id="addbook-book-date"
-                    min="1000" max="2015" value="2014" required/>
+            <label for="editbook-book-date">Date</label>
+            <input id="editbook-book-date" required/>
         </div>
         <div>
             <span>

@@ -47,7 +47,7 @@ AngularApp
         return {
             restrict: 'E',
             templateUrl: 'templates/edit-book.html',
-            controller: 'editBookController',
+            controller: 'addBookController',
             scope: false
         }
     });

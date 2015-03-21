@@ -26,19 +26,10 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
         });
     };
 
-    $scope.setItemsToEdit = function(id, type) {
-        $dataBus.editItems.itemToEdit = id;
-        $dataBus.editItems.dataToEdit = type;
-        $.each($dataBus.myBooks, function(index, value) {
-            if ($dataBus.myBooks[index].id == id) {
-                $dataBus.editItems.authorToEdit = $dataBus.myBooks[index].author;
-                $dataBus.editItems.nameToEdit = $dataBus.myBooks[index].name;
-                $dataBus.editItems.dateToEdit = $dataBus.myBooks[index].date;
-            }
-        });
+    $scope.setItemsToEdit = function(params, type) {
+        $dataBus.editItems = params;
+        $dataBus.editItems.type = type;
     };
-
-
 
     $scope.returnCurrentDialogTitle = function () {
         var result;
