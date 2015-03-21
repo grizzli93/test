@@ -88,6 +88,12 @@ body {
 .table-cell-actions {
     width: 100px;
 }
+.nav.nav-tabs li {
+    width: 50%;
+}
+table {
+    border: 1px solid #ddd;
+}
 /*.ng-invalid.ng-dirty {*/
     /*border-color: red;*/
 /*}*/
