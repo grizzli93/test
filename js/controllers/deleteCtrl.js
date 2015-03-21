@@ -4,6 +4,7 @@ AngularApp.controller('deleteController', [
     'dataService',
     'functionsBus',
     function ($scope, $dataBus, $dataService, $functionsBus) {
+        //todo
         $scope.removeParams = {
             name: $dataBus.removeItems,
             author: $dataBus.removeItems,

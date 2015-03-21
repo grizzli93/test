@@ -85,6 +85,9 @@ body {
 .main-containefr {
     background: url(../img/ajax-loader.gif) white no-repeat 50% 50%;
 }
+.table-cell-actions {
+    width: 100px;
+}
 /*.ng-invalid.ng-dirty {*/
     /*border-color: red;*/
 /*}*/
