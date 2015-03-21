@@ -27,12 +27,13 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
     };
 
     $scope.setItemsToEdit = function(id, type) {
-        $dataBus.removeItems.itemToRemove = id;
-        $dataBus.removeItems.dataToRemove = type;
+        $dataBus.editItems.itemToEdit = id;
+        $dataBus.editItems.dataToEdit = type;
         $.each($dataBus.myBooks, function(index, value) {
             if ($dataBus.myBooks[index].id == id) {
-                $dataBus.removeItems.authorToRemove = $dataBus.myBooks[index].author;
-                $dataBus.removeItems.nameToRemove = $dataBus.myBooks[index].name;
+                $dataBus.editItems.authorToEdit = $dataBus.myBooks[index].author;
+                $dataBus.editItems.nameToEdit = $dataBus.myBooks[index].name;
+                $dataBus.editItems.dateToEdit = $dataBus.myBooks[index].date;
             }
         });
     };
