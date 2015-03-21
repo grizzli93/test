@@ -22,7 +22,7 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
         var objType;
         type == 'book' ? objType = 'myBooks': objType = 'myAuthors';
         $.each($dataBus[objType], function(index, value) {
-            if ($dataBus[objType][index].id == id) {debugger;
+            if ($dataBus[objType][index].id == id) {
                 $dataBus.removeItems.authorToRemove = $dataBus.myBooks[index].author;
                 $dataBus.removeItems.nameToRemove = $dataBus.myBooks[index].name;
             }

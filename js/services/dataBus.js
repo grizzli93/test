@@ -32,7 +32,6 @@ AngularApp.service('dataBus', [
             }
             return deferredBooks.promise;
         };
-
         this.getMyAuthors = function () {
             if (!( this.myAuthors = $dataService.getCollection('myAuthorsCollection'))) {
                 $http.get('data/data.authors.json')

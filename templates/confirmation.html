@@ -3,7 +3,7 @@
         <span>Are you sure that you want to remove <strong>"{{removeParams.name.nameToRemove}}"</strong> by <strong ng-repeat="author in getAuthorById(removeParams.name.authorToRemove)">{{author}}{{$last ? '' : ', '}}</strong>?</span>
     </div>
     <div class="bg-danger alert" ng-show="removeParams.type.dataToRemove == 'author'">
-        <span>Are you sure that you want to remove author <strong>{{getAuthorById(removeParams.name.authorToRemove)}}</strong>?</span>
+        <span>Are you sure that you want to remove author <strong>{{getAuthorById(removeParams.author)[0]}}</strong>?</span>
     </div>
     <div class="modal-footer">
         <input type="submit" data-dismiss="modal"  value="Remove" class="btn btn-warning" ng-click="removeItem()"/>

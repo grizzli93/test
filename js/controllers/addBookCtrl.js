@@ -13,7 +13,6 @@ function($scope, $dataService, $dataBus) {
             }
         }
     };
-
     $scope.removeRequiredAuthor = function (arg) {
         for (var i = 0; i <= $scope.requiredAuthors.length; i++) {
             if ($scope.requiredAuthors[i] == arg) {
@@ -26,14 +25,12 @@ function($scope, $dataService, $dataBus) {
             }
         }
     };
-
     $scope.restoreAuthors = function (arg) {
         for (var i = 0; i < $scope.data.authors.length; i++) {
             $scope.data.authors[i].invisible = false;
         }
         $scope.cleanModel(arg);
     };
-
     $scope.addBook = function () {
         $scope.book.author = $scope.requiredAuthorsId;
         $dataBus.myBooks.push($scope.book);
@@ -43,7 +40,6 @@ function($scope, $dataService, $dataBus) {
         $scope.requiredAuthorsId = [];
         $scope.book = {};
     };
-
     $scope.cleanModel = function (arg) {
         if (typeof arg == "object") {
             arg = {};
