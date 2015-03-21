@@ -4,6 +4,7 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
         displayAddAuthor: false,
         displayAddBook: false,
         displayConfirmationDialog: false,
+        displayEditAuthor: false,
         displayEditBook: false
     };
 
@@ -16,10 +17,12 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
     };
 
     $scope.setItemsToRemove = function(id, type) {
-        $dataBus.removeItems.itemToRemove = id;
+        $dataBus.removeItems.idToRemove = id;
         $dataBus.removeItems.dataToRemove = type;
-        $.each($dataBus.myBooks, function(index, value) {
-            if ($dataBus.myBooks[index].id == id) {
+        var objType;
+        type == 'book' ? objType = 'myBooks': objType = 'myAuthors';
+        $.each($dataBus[objType], function(index, value) {
+            if ($dataBus[objType][index].id == id) {debugger;
                 $dataBus.removeItems.authorToRemove = $dataBus.myBooks[index].author;
                 $dataBus.removeItems.nameToRemove = $dataBus.myBooks[index].name;
             }
@@ -47,6 +50,9 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
                         break;
                     case 'displayEditBook':
                         result = 'Edit book';
+                        break;
+                    case 'displayEditAuthor':
+                        result = 'Edit author';
                         break;
                 }
             }

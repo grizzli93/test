@@ -7,7 +7,7 @@ AngularApp.service('dataBus', [
         this.myBooks = [];
         this.myAuthors = [];
         this.removeItems = {
-            itemToRemove: '',
+            idToRemove: '',
             dataToRemove: '',
             nameToRemove: '',
             authorToRemove: ''
