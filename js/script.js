@@ -8,3 +8,4 @@ var AngularApp = angular.module('newModule', ['ngRoute']);
 //preloader
 //механизм замещения но не роут
 //большой скоуп
+//добавление автора

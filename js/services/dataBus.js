@@ -14,7 +14,8 @@ AngularApp.service('dataBus', [
         };
         this.editItems = {};
 
-        var deffered = $q.defer();
+        var deferredBooks = $q.defer();
+        var deferredAuthors = $q.defer();
 
         this.getMyBooks = function () {
             if (!( this.myBooks = $dataService.getCollection('myBooksCollection'))) {
@@ -22,14 +23,14 @@ AngularApp.service('dataBus', [
                     .then(function (data) {
                         $dataService.setCollection('myBooksCollection', data.data);
                         that.myBooks = $dataService.getCollection('myBooksCollection');
-                        deffered.resolve();
+                        deferredBooks.resolve();
                     }, function (data) {
-                        deffered.reject(data);
+                        deferredBooks.reject(data);
                     });
             } else {
-                deffered.resolve();
+                deferredBooks.resolve();
             }
-            return deffered.promise;
+            return deferredBooks.promise;
         };
 
         this.getMyAuthors = function () {
@@ -38,13 +39,13 @@ AngularApp.service('dataBus', [
                     .then(function (data) {
                         $dataService.setCollection('myAuthorsCollection', data.data);
                         that.myAuthors = $dataService.getCollection('myAuthorsCollection');
-                        deffered.resolve();
+                        deferredAuthors.resolve();
                     }, function (data) {
-                        deffered.reject(data);
+                        deferredAuthors.reject(data);
                     });
             } else {
-                deffered.resolve();
+                deferredAuthors.resolve();
             }
-            return deffered.promise;
+            return deferredAuthors.promise;
         };
     }]);

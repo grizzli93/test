@@ -7,10 +7,6 @@ AngularApp.controller('booksController', [
 
         $scope.getAuthorById = $functionsBus.getAuthorById;
 
-        $scope.editEntry = function () {
-
-        };
-
         $dataBus.getMyBooks().then(function() {
             $scope.books =  $dataBus.myBooks;
         });

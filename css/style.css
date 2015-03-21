@@ -82,6 +82,9 @@ body {
 .alert {
     margin-bottom: 0!important;
 }
+.main-containefr {
+    background: url(../img/ajax-loader.gif) white no-repeat 50% 50%;
+}
 /*.ng-invalid.ng-dirty {*/
     /*border-color: red;*/
 /*}*/
