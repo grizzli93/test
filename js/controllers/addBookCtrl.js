@@ -2,7 +2,7 @@ AngularApp.controller('addBookController', [
     '$scope',
     'dataService',
     'dataBus',
-function($scope, $dataService, $dataBus) {
+function($scope, $dataService, $dataBus, $timeout) {
 
     $scope.addRequiredAuthor = function (arg) {
         for (var i = 0; i < $scope.data.authors.length; i++) {

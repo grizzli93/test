@@ -17,16 +17,17 @@
     <div role="tabpanel" ng-controller="tabsController">
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" ng-class="{active : tabs.activeTab == 1}" ng-click="tabs.setTab(1)">
-                <a href="#/books">Home</a>
+                <a href="#/books">Books list</a>
             </li>
             <li role="presentation" ng-class="{active : tabs.activeTab == 2}" ng-click="tabs.setTab(2)">
-                <a href="#/authors">Profile</a>
+                <a href="#/authors">Authors list</a>
             </li>
         </ul>
     </div>
 
     <!--ng-include="'table.html'"-->
     <div ng-controller="booksController" class="main-container">
+        <div class="preloader"></div>
         <div ng-view></div>
     </div>
 </div>
