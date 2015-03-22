@@ -50,4 +50,16 @@ AngularApp
             controller: 'addBookController',
             scope: false
         }
+    })
+    .directive('repTest', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                if (scope.$last) setTimeout(function(){
+                    $('#preloader').removeClass('preloader');
+                    //todo
+                    //scope.$emit('onRepeatLast', element, attrs);
+                }, 500);
+            }
+        }
     });
