@@ -98,6 +98,9 @@ body {
 table {
     border: 1px solid #ddd;
 }
+th {
+    background: #ddd;
+}
 /*.ng-invalid.ng-dirty {*/
     /*border-color: red;*/
 /*}*/
