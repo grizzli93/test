@@ -1,7 +1,7 @@
 AngularApp.service('functionsBus', ['dataBus', function($dataBus) {
     this.getAuthorById = function (arg) {
         var argument = [];
-        typeof(arg) == 'number' ? argument.push(arg) : argument = arg;
+        angular.isNumber(arg) ? argument.push(arg) : argument = arg;
 
         var result = [];
         $.each(argument, function (index, value) {
