@@ -15,7 +15,7 @@ AngularApp.controller('booksController', [
             $scope.authors = $dataBus.myAuthors;
         });
         $scope.asd = function(arg, event){
-            //$(event.currentTarget).tooltip();
+            //$(event.currentTarget).tooltip({title: '123'});
         }
 
 }]);
