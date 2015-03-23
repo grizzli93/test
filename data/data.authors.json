@@ -1,11 +1,13 @@
 [
     {
         "id": "1",
-        "name": "A.Cash"
+        "name": "A.Cash",
+        "photo": "http://upload.wikimedia.org/wikipedia/commons/7/71/Tom_Cruise_avp_2014_4.jpg"
     },
     {
         "id": "2",
-        "name": "C.Town"
+        "name": "C.Town",
+        "photo": ""
     },
     {
         "id": "3",

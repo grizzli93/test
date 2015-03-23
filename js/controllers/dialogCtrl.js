@@ -33,7 +33,6 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
         $dataBus.editItems = params;
         $dataBus.editItems.type = type;
     };
-
     $scope.returnCurrentDialogTitle = function () {
         var result;
         $.each($scope.displayDialogContent, function (key, value) {

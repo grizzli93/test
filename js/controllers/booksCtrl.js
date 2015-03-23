@@ -14,5 +14,8 @@ AngularApp.controller('booksController', [
         $dataBus.getMyAuthors().then(function(){
             $scope.authors = $dataBus.myAuthors;
         });
+        $scope.asd = function(arg, event){
+            //$(event.currentTarget).tooltip();
+        }
 
 }]);
