@@ -12,7 +12,6 @@ AngularApp.service('dataBus', [
         this.myAuthors = [];
         this.editItems = {};
         this.getCollectionData = function(field) {
-            debugger;
             return this[field];
         };
         var deferredBooks = $q.defer();
@@ -47,5 +46,30 @@ AngularApp.service('dataBus', [
                 deferredAuthors.resolve();
             }
             return deferredAuthors.promise;
+        };
+
+        this.getBookById = function (arg) {
+            var GOVNO;
+            $.each(that.myBooks, function (index, value) {
+                if (that.myBooks[index].id == arg) {
+                    GOVNO =  that.myBooks[index];
+                }
+            });
+            return GOVNO;
+        };
+
+        this.getAuthorById = function (arg) {
+            var argument = [];
+            angular.isNumber(arg) ? argument.push(arg) : argument = arg;
+
+            var result = [];
+            $.each(argument, function (index, value) {
+                $.each($dataBus.myAuthors, function (index_in, value_in) {
+                    if ($dataBus.myAuthors[index_in].id == argument[index]) {
+                        result.push($dataBus.myAuthors[index_in].name);
+                    }
+                });
+            });
+            return result;
         };
     }]);

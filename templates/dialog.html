@@ -5,11 +5,11 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">{{returnCurrentDialogTitle()}}</h4>
             </div>
-            <add-book ng-show="displayDialogContent.displayAddBook"></add-book>
-            <add-author ng-show="displayDialogContent.displayAddAuthor"></add-author>
-            <edit-book ng-show="displayDialogContent.displayEditBook"></edit-book>
-            <remove-book-dialog ng-show="displayDialogContent.displayRemoveBook"></remove-book-dialog>
-            <remove-author-dialog ng-show="displayDialogContent.displayRemoveAuthor"></remove-author-dialog>
+            <add-book ng-if="displayDialogContent.displayAddBook"></add-book>
+            <add-author ng-if="displayDialogContent.displayAddAuthor"></add-author>
+            <edit-book ng-if="displayDialogContent.displayEditBook"></edit-book>
+            <remove-book-dialog ng-if="displayDialogContent.displayRemoveBook"></remove-book-dialog>
+            <remove-author-dialog ng-if="displayDialogContent.displayRemoveAuthor"></remove-author-dialog>
         </div>
     </div>
 </div>

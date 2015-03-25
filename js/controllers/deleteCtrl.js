@@ -37,5 +37,4 @@ AngularApp.controller('deleteController', [
                 }
             }
         };
-        $dataBus.removeItems.idToRemove = '';
     }]);

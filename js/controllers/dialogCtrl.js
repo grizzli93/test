@@ -1,4 +1,4 @@
-AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope, $dataBus) {
+AngularApp.controller('dialogController', ['$scope','dataBus', 'functionsBus', function ($scope, $dataBus, functionsBus) {
 
     $scope.displayDialogContent = {
         displayAddAuthor: false,
@@ -14,13 +14,15 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
             $scope.displayDialogContent[key] = false;
         });
         $scope.displayDialogContent[content] = true;
+        $('#myModal').modal();
         return false;
     };
     $scope.setAuthorToRemove = function(id) {
         $dataBus.authorToRemove = id;
     };
     $scope.setBookToRemove = function(id) {debugger;
-        $dataBus.bookToRemove = id;
+        $scope.bookToRemove = $dataBus.getBookById(id);
+        console.log($scope.bookToRemove)
     };
     $scope.setAuthorToEdit = function(id) {
         $dataBus.authorToEdit = id;
@@ -56,4 +58,5 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
         });
         return result;
     };
+
 }]);

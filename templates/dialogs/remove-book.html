@@ -1,6 +1,6 @@
 
 <div class="bg-danger alert">
-    <span>Are you sure that you want to remove {{bookToRemove}}<strong>"{{getBookById(bookToRemove)}}"</strong> by <strong ng-repeat="author in getAuthorById(authorToRemove)">{{author}}{{$last ? '' : ', '}}</strong>?</span>
+    <span>Are you sure that you want to remove <strong>"{{bookToRemove.name}}"</strong> by <strong ng-repeat="author in getAuthorById(authorToRemove)">{{author}}{{$last ? '' : ', '}}</strong>?</span>
 </div>
 <div class="modal-footer">
     <input type="submit" data-dismiss="modal"  value="Remove" class="btn btn-warning" ng-click="removeBook()"/>

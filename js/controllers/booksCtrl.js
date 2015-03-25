@@ -16,6 +16,18 @@ AngularApp.controller('booksController', [
         });
         $scope.asd = function(arg, event){
             //$(event.currentTarget).tooltip({title: '123'});
-        }
+        };
 
+        $scope.editBook = function(id) {
+//            dialogSevice.displayContent('displayEditBook');
+//            setBookToEdit(id)
+            console.log(id);
+        };
+
+        $scope.editBook = function(id) {
+//            dialogSevice.displayContent('displayEditBook');
+//            setBookToEdit(id)
+            $('#myModal').modal();
+            console.log(id);
+        }
 }]);
