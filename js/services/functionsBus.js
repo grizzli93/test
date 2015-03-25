@@ -13,4 +13,11 @@ AngularApp.service('functionsBus', ['dataBus', function($dataBus) {
         });
         return result;
     };
+    this.getBookById = function (arg) {
+        $.each($dataBus.myBooks, function (index, value) {
+            if ($dataBus.myAuthors[index].id == arg) {
+                return $dataBus.myBooks[index].name;
+            }
+        });
+    };
 }]);

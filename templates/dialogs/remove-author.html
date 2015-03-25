@@ -1,0 +1,9 @@
+<div class="modal-body">
+    <div class="bg-danger alert" ng-show="removeParams.type.dataToRemove == 'author'">
+        <span>Are you sure that you want to remove author <strong>{{getAuthorById(authorToRemove)[0]}}</strong>?</span>
+    </div>
+</div>
+<div class="modal-footer">
+    <input type="submit" data-dismiss="modal"  value="Remove" class="btn btn-warning" ng-click="removeAuthor()"/>
+    <input type="button" data-dismiss="modal" class="btn btn-warning" value="Cancel"/>
+</div>

@@ -3,7 +3,8 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
     $scope.displayDialogContent = {
         displayAddAuthor: false,
         displayAddBook: false,
-        displayConfirmationDialog: false,
+        displayRemoveAuthor: false,
+        displayRemoveBook: false,
         displayEditAuthor: false,
         displayEditBook: false
     };
@@ -15,23 +16,17 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
         $scope.displayDialogContent[content] = true;
         return false;
     };
-
-    $scope.setItemsToRemove = function(id, type) {
-        $dataBus.removeItems.idToRemove = id;
-        $dataBus.removeItems.dataToRemove = type;
-        var objType;
-        type == 'book' ? objType = 'myBooks': objType = 'myAuthors';
-        $.each($dataBus[objType], function(index, value) {
-            if ($dataBus[objType][index].id == id) {
-                $dataBus.removeItems.authorToRemove = $dataBus.myBooks[index].author;
-                $dataBus.removeItems.nameToRemove = $dataBus.myBooks[index].name;
-            }
-        });
+    $scope.setAuthorToRemove = function(id) {
+        $dataBus.authorToRemove = id;
     };
-
-    $scope.setItemsToEdit = function(params, type) {
-        $dataBus.editItems = params;
-        $dataBus.editItems.type = type;
+    $scope.setBookToRemove = function(id) {debugger;
+        $dataBus.bookToRemove = id;
+    };
+    $scope.setAuthorToEdit = function(id) {
+        $dataBus.authorToEdit = id;
+    };
+    $scope.setBookToEdit = function(id) {
+        $dataBus.bookToEdit = id;
     };
     $scope.returnCurrentDialogTitle = function () {
         var result;
@@ -44,7 +39,10 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
                     case 'displayAddBook':
                         result = 'Add book';
                         break;
-                    case 'displayConfirmationDialog':
+                    case 'displayRemoveBook':
+                        result = 'Confirm your action';
+                        break;
+                    case 'displayRemoveAuthor':
                         result = 'Confirm your action';
                         break;
                     case 'displayEditBook':

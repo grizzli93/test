@@ -16,10 +16,19 @@ AngularApp
         }
     })
 
-    .directive('confirmation', function () {
+    .directive('removeBookDialog', function () {
         return {
             restrict: 'E',
-            templateUrl: 'templates/confirmation.html',
+            templateUrl: 'templates/dialogs/remove-book.html',
+            controller: 'deleteController',
+            scope: false
+        }
+    })
+
+    .directive('removeAuthorDialog', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/dialogs/remove-author.html',
             controller: 'deleteController',
             scope: false
         }
@@ -50,16 +59,16 @@ AngularApp
             controller: 'addBookController',
             scope: false
         }
-    })
-    .directive('repTest', function() {
-        return {
-            restrict: 'A',
-            link: function(scope, element, attrs) {
-                if (scope.$last) setTimeout(function(){
-                    $('#preloader').removeClass('preloader');
-                    //todo
-                    //scope.$emit('onRepeatLast', element, attrs);
-                }, 500);
-            }
-        }
     });
+//    .directive('repTest', function() {
+//        return {
+//            restrict: 'A',
+//            link: function(scope, element, attrs) {
+//                if (scope.$last) setTimeout(function(){
+//                    $('#preloader').removeClass('preloader');
+//                    //todo
+//                    //scope.$emit('onRepeatLast', element, attrs);
+//                }, 500);
+//            }
+//        }
+//    });

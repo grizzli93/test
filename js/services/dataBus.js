@@ -4,16 +4,17 @@ AngularApp.service('dataBus', [
     '$q',
     function ($dataService, $http, $q) {
         var that = this;
+        this.authorToRemove = '';
+        this.bookToRemove = '';
+        this.authorToEdit = '';
+        this.bookToEdit = '';
         this.myBooks = [];
         this.myAuthors = [];
-        this.removeItems = {
-            idToRemove: '',
-            dataToRemove: '',
-            nameToRemove: '',
-            authorToRemove: ''
-        };
         this.editItems = {};
-
+        this.getCollectionData = function(field) {
+            debugger;
+            return this[field];
+        };
         var deferredBooks = $q.defer();
         var deferredAuthors = $q.defer();
 
