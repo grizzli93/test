@@ -8,12 +8,16 @@ AngularApp.controller('booksController', [
 
         $dataBus.getMyBooks().then(function() {
             $scope.books =  $dataBus.myBooks;
+            $.each($scope.books, function(index){
+                $scope.books[index].author = $dataBus.getAuthorNameByID($scope.books[index].author);
+            });
+            $('#preloader').removeClass('preloader');
         });
-
         $dataBus.getMyAuthors().then(function(){
             $scope.authors = $dataBus.myAuthors;
+            $('#preloader').removeClass('preloader');
         });
-        $scope.asd = function(arg, event){
+        $scope.showPhoto = function(arg, event){
             var img = '<img src="'+arg+'"/>';
             $(event.currentTarget).popover({
                 content: img,
