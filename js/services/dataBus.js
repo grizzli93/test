@@ -4,19 +4,22 @@ AngularApp.service('dataBus', [
     '$q',
     function ($dataService, $http, $q) {
         var that = this;
-        this.authorToRemove = '';
-        this.bookToRemove = '';
-        this.authorToEdit = '';
-        this.bookToEdit = '';
+        this.idToRemove = '';
         this.myBooks = [];
         this.myAuthors = [];
         this.editItems = {};
         this.getCollectionData = function(field) {
             return this[field];
         };
+        this.setCollectionData = function(field, value) {
+            this[field] = value;
+        };
         var deferredBooks = $q.defer();
         var deferredAuthors = $q.defer();
-
+        /**
+         *
+         * @returns {promise|fd.g.promise}
+         */
         this.getMyBooks = function () {
             if (!( this.myBooks = $dataService.getCollection('myBooksCollection'))) {
                 $http.get('data/data.books.json')
@@ -32,6 +35,10 @@ AngularApp.service('dataBus', [
             }
             return deferredBooks.promise;
         };
+        /**
+         *
+         * @returns {promise|fd.g.promise}
+         */
         this.getMyAuthors = function () {
             if (!( this.myAuthors = $dataService.getCollection('myAuthorsCollection'))) {
                 $http.get('data/data.authors.json')
@@ -47,9 +54,14 @@ AngularApp.service('dataBus', [
             }
             return deferredAuthors.promise;
         };
-        this.getAuthorById = function (id) {
+        /**
+         *
+         * @param id
+         * @returns {Array}
+         */
+        this.getAuthorNameByID = function (id) {
             var argument = [];
-            angular.isNumber(id) ? argument.push(id) : argument = id;
+            angular.isArray(id) ? argument = id : argument.push(id * 1);
             var result = [];
             $.each(argument, function (index, value) {
                 $.each(that.myAuthors, function (index_in, value_in) {
@@ -60,11 +72,16 @@ AngularApp.service('dataBus', [
             });
             return result;
         };
+        /**
+         *
+         * @param id
+         * @returns {*}
+         */
         this.getBookById = function (id) {
             var result;
             $.each(that.myBooks, function (index, value) {
-                if (that.myAuthors[index].id == id) {
-                    result = that.myBooks[index].name;
+                if (that.myBooks[index].id == id) {
+                    result = that.myBooks[index];
                 }
             });
             return result;

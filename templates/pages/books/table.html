@@ -13,12 +13,13 @@
         <tbody>
             <tr ng-repeat="book in books | filter:search" rep-test>
                 <td>{{book.name}}</td>
-                <td class='authors'><span ng-repeat="author in getAuthorById(book.author)">{{author}}{{$last ? '' : ', '}}</span></td>
+                <td class='authors'><span ng-repeat="author in getAuthorNameByID(book.author)">{{author}}{{$last ? '' : ', '}}</span></td>
                 <td>{{book.date}}</td>
                 <td>{{book.id}}</td>
                 <td>
-                    <span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#myModal"  ng-click="displayContent('displayEditBook'); setBookToEdit(book.id)"></span>
-                    <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#myModal"  ng-click="displayContent('displayRemoveBook'); setBookToRemove(book.id)"></span>
+                    <span class="glyphicon glyphicon-edit" ng-click="setBookToEdit(book.id); displayContent('displayEditBook');"></span>
+                    <span class="glyphicon glyphicon-trash" ng-click="setBookToRemove(book.id); displayContent('displayRemoveBook');"></span>
+                    <!--data-toggle="modal" data-target="#myModal"-->
                 </td>
             </tr>
         </tbody>

@@ -101,6 +101,12 @@ table {
 th {
     background: #ddd;
 }
+.popover-content img {
+    width: 150px;
+ }
+.modal-footer {
+    text-align: center!important;
+}
 /*.ng-invalid.ng-dirty {*/
     /*border-color: red;*/
 /*}*/

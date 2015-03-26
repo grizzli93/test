@@ -4,7 +4,7 @@ AngularApp.controller('booksController', [
     'dataBus',
     function ($http, $scope, $dataBus) {
 
-        $scope.getAuthorById = $dataBus.getAuthorById;
+        $scope.getAuthorNameByID = $dataBus.getAuthorNameByID;
 
         $dataBus.getMyBooks().then(function() {
             $scope.books =  $dataBus.myBooks;
@@ -14,7 +14,19 @@ AngularApp.controller('booksController', [
             $scope.authors = $dataBus.myAuthors;
         });
         $scope.asd = function(arg, event){
-            //$(event.currentTarget).tooltip({title: '123'});
-        }
-
+            var img = '<img src="'+arg+'"/>';
+            $(event.currentTarget).popover({
+                content: img,
+                trigger: 'hover',
+                html: true,
+                placement: 'bottom',
+                animation: false,
+                container : 'body'
+            });
+        };
+        $scope.editBook = function(id) {
+//          dialogSevice.displayContent('displayEditBook');
+//          setBookToEdit(id)
+            console.log(id);
+        };
 }]);

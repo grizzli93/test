@@ -7,18 +7,21 @@
     {
         "id": "2",
         "name": "C.Town",
-        "photo": ""
+        "photo": "http://t0.gstatic.com/images?q=tbn:ANd9GcR661R4W3ibr12ENrkDyPI-4Vj-_ZgwcAiqgrZII4v_RzfDtqV4Kw"
     },
     {
         "id": "3",
-        "name": "B.Sky"
+        "name": "B.Sky",
+        "photo": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQr4r6geOVyz-bAEqkqUph6pfBtQbMEhjAer7MxDgnn2uLryaQP0QAM_E4"
     },
     {
         "id": "4",
-        "name": "F.Road"
+        "name": "F.Road",
+        "photo": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTZd0M33_f-Nt8gEBMH2-bTbE-iakG3QGTcli7088gM5OiKHw-KsA"
     },
     {
         "id": "5",
-        "name": "T.Tailor"
+        "name": "T.Tailor",
+        "photo": "http://cdn.bleedingcool.net/wp-content/uploads/2013/05/052212-blogs-will-smith-233x350.jpg"
     }
 ]

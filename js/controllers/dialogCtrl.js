@@ -1,12 +1,12 @@
 AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope, $dataBus) {
 
     $scope.displayDialogContent = {
-        displayAddAuthor: false,
-        displayAddBook: false,
         displayRemoveAuthor: false,
         displayRemoveBook: false,
         displayEditAuthor: false,
-        displayEditBook: false
+        displayEditBook: false,
+        displayAddAuthor: false,
+        displayAddBook: false
     };
 
     $scope.displayContent = function (content) {
@@ -14,19 +14,23 @@ AngularApp.controller('dialogController', ['$scope','dataBus', function ($scope,
             $scope.displayDialogContent[key] = false;
         });
         $scope.displayDialogContent[content] = true;
+        $('#myModal').modal();
         return false;
     };
     $scope.setAuthorToRemove = function(id) {
-        $dataBus.authorToRemove = id;
+        $scope.authorToRemove  = $dataBus.getAuthorNameByID(id)[0];
+        $dataBus.setCollectionData('idToRemove', id);
     };
-    $scope.setBookToRemove = function(id) {debugger;
-        $dataBus.bookToRemove = id;
+    $scope.setBookToRemove = function(id) {
+        $scope.bookToRemove = $dataBus.getBookById(id).name;
+        $scope.authorToRemove = $dataBus.getAuthorNameByID($dataBus.getBookById(id).author);
+        $dataBus.setCollectionData('idToRemove', id);
     };
     $scope.setAuthorToEdit = function(id) {
-        $dataBus.authorToEdit = id;
+
     };
     $scope.setBookToEdit = function(id) {
-        $dataBus.bookToEdit = id;
+
     };
     $scope.returnCurrentDialogTitle = function () {
         var result;
