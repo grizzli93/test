@@ -2,10 +2,9 @@ AngularApp.controller('booksController', [
     '$http',
     '$scope',
     'dataBus',
-    'functionsBus',
-    function ($http, $scope, $dataBus, $functionsBus) {
+    function ($http, $scope, $dataBus) {
 
-        $scope.getAuthorById = $functionsBus.getAuthorById;
+        $scope.getAuthorById = $dataBus.getAuthorById;
 
         $dataBus.getMyBooks().then(function() {
             $scope.books =  $dataBus.myBooks;
