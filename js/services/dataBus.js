@@ -8,10 +8,10 @@ AngularApp.service('dataBus', [
         this.myBooks = [];
         this.myAuthors = [];
         this.editItems = {};
-        this.getCollectionData = function(field) {
+        this.getCollectionData = function (field) {
             return this[field];
         };
-        this.setCollectionData = function(field, value) {
+        this.setCollectionData = function (field, value) {
             this[field] = value;
         };
         var deferredBooks = $q.defer();

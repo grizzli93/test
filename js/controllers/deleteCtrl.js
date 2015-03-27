@@ -6,7 +6,7 @@ AngularApp.controller('deleteController', [
         $scope.removeBook = function () {
             console.log($dataBus.idToRemove + '312');
             for (var i = 0; i < $dataBus.myBooks.length; i++) {
-                if ($dataBus.myBooks[i].id == $dataBus.idToRemove ) {
+                if ($dataBus.myBooks[i].id == $dataBus.idToRemove) {
                     $dataBus.myBooks.splice(i, 1);
                     $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
                     return false;

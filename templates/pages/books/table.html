@@ -2,26 +2,28 @@
     <!--<span>Total items in list: {{((books | filter:search).length)}}</span>-->
     <table class="table table-hover" ng-show="(books | filter:search).length">
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Authors</th>
-                <th>Date</th>
-                <th>ID</th>
-                <th class="table-cell-actions">Actions</th>
-            </tr>
+        <tr>
+            <th>Name</th>
+            <th>Authors</th>
+            <th>Date</th>
+            <th>ID</th>
+            <th class="table-cell-actions">Actions</th>
+        </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="book in books | filter:search" rep-test>
-                <td>{{book.name}}</td>
-                <td class='authors'><span ng-repeat="author in book.author">{{author}}{{$last ? '' : ', '}}</span></td>
-                <td>{{book.date}}</td>
-                <td>{{book.id}}</td>
-                <td>
-                    <span class="glyphicon glyphicon-edit" ng-click="setBookToEdit(book.id); displayContent('displayEditBook');"></span>
-                    <span class="glyphicon glyphicon-trash" ng-click="setBookToRemove(book.id); displayContent('displayRemoveBook');"></span>
-                    <!--data-toggle="modal" data-target="#myModal"-->
-                </td>
-            </tr>
+        <tr ng-repeat="book in books | filter:search" rep-test>
+            <td>{{book.name}}</td>
+            <td class='authors'><span ng-repeat="author in book.author">{{author}}{{$last ? '' : ', '}}</span></td>
+            <td>{{book.date}}</td>
+            <td>{{book.id}}</td>
+            <td>
+                <span class="glyphicon glyphicon-edit"
+                      ng-click="setBookToEdit(book.id); displayContent('displayEditBook');"></span>
+                <span class="glyphicon glyphicon-trash"
+                      ng-click="setBookToRemove(book.id); displayContent('displayRemoveBook');"></span>
+                <!--data-toggle="modal" data-target="#myModal"-->
+            </td>
+        </tr>
         </tbody>
     </table>
 

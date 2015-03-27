@@ -1,3 +1,3 @@
-AngularApp.controller('editBookController', ['dataBus','$scope', function($dataBus, $scope) {
+AngularApp.controller('editBookController', ['dataBus', '$scope', function ($dataBus, $scope) {
 
 }]);

@@ -7,12 +7,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="author in authors | filter: search" ng-mouseover="showPhoto(author.photo, $event)">
+    <tr ng-repeat="author in authors | filter: customFilter" ng-mouseover="showPhoto(author.photo, $event)">
         <td>{{author.id}}</td>
         <td>{{author.name}}</td>
         <td>
-            <span class="glyphicon glyphicon-edit" ng-click="displayContent('displayEditAuthor'); setAuthorToEdit(author.id)"></span>
-            <span class="glyphicon glyphicon-trash" ng-click="displayContent('displayRemoveAuthor'); setAuthorToRemove(author.id)"></span>
+            <span class="glyphicon glyphicon-edit"
+                  ng-click="displayContent('displayEditAuthor'); setAuthorToEdit(author.id)"></span>
+            <span class="glyphicon glyphicon-trash"
+                  ng-click="displayContent('displayRemoveAuthor'); setAuthorToRemove(author.id)"></span>
         </td>
     </tr>
     </tbody>

@@ -15,7 +15,8 @@
         <div>
             <span>
                 <label>Authors</label>
-                <span class="author-wrapper" ng-repeat="requiredAuthor in requiredAuthors">{{requiredAuthor.name}}<span class="glyphicon glyphicon-remove" ng-click="removeRequiredAuthor(requiredAuthor)"></span>
+                <span class="author-wrapper" ng-repeat="requiredAuthor in requiredAuthors">{{requiredAuthor.name}}<span
+                        class="glyphicon glyphicon-remove" ng-click="removeRequiredAuthor(requiredAuthor)"></span>
                 </span>
             </span>
         </div>
@@ -29,7 +30,9 @@
                         </td>
                     </tr>
                     <tr ng-repeat="author in data.authors | filter:authorsFilter">
-                        <td ng-hide="author.invisible" >{{author.name}}<span ng-click="addRequiredAuthor(author.name)" class="glyphicon glyphicon-plus author-add"></span></td>
+                        <td ng-hide="author.invisible">{{author.name}}<span ng-click="addRequiredAuthor(author.name)"
+                                                                            class="glyphicon glyphicon-plus author-add"></span>
+                        </td>
                     </tr>
                 </table>
             </div>
