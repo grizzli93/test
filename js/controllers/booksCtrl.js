@@ -3,7 +3,6 @@ AngularApp.controller('booksController', [
     '$scope',
     'dataBus',
     function ($http, $scope, $dataBus) {
-
         $scope.getAuthorNameByID = $dataBus.getAuthorNameByID;
 
         $dataBus.getMyBooks().then(function() {

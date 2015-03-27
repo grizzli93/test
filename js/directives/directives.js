@@ -66,7 +66,6 @@ AngularApp
 //            link: function(scope, element, attrs) {
 //                if (scope.$last) setTimeout(function(){
 //                    $('#preloader').removeClass('preloader');
-//                    //todo
 //                    //scope.$emit('onRepeatLast', element, attrs);
 //                }, 500);
 //            }

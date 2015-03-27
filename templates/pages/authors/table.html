@@ -7,8 +7,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="author in authors | filter : {id: search.$}" ng-mouseover="showPhoto(author.photo, $event)">
-        <td>{{author.id}}{{search}}</td>
+    <tr ng-repeat="author in authors | filter: search" ng-mouseover="showPhoto(author.photo, $event)">
+        <td>{{author.id}}</td>
         <td>{{author.name}}</td>
         <td>
             <span class="glyphicon glyphicon-edit" ng-click="displayContent('displayEditAuthor'); setAuthorToEdit(author.id)"></span>
@@ -17,4 +17,3 @@
     </tr>
     </tbody>
 </table>
-        <span>{{search}}</span> === <span>{{search.$}}</span>
