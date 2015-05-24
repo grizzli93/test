@@ -30,6 +30,8 @@ AngularApp.controller('addBookController', [
             for (var i = 0; i < $scope.data.authors.length; i++) {
                 $scope.data.authors[i].invisible = false;
             }
+            $scope.requiredAuthors = [];
+            $scope.requiredAuthorsId = [];
             $scope.cleanModel(arg);
         };
         $scope.addBook = function () {
@@ -38,6 +40,7 @@ AngularApp.controller('addBookController', [
             $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
             $scope.requiredAuthors = [];
             $scope.requiredAuthorsId = [];
+            $dataBus.editItems = {};
             $scope.book = {};
         };
         $scope.cleanModel = function (arg) {
@@ -52,10 +55,10 @@ AngularApp.controller('addBookController', [
             var id = $dataBus.editItems.editBook.id;
             for (var i = 0; i < $dataBus.myBooks.length; i++) {
                 if ($dataBus.myBooks[i].id == id) {
-                    debugger;
                     $dataBus.editItems.editBook.author = $scope.requiredAuthorsId;
                     $dataBus.myBooks[i] = $scope.editData.editBook;
                     $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
+                    $scope.restoreAuthors();
                 }
             }
         };
@@ -67,6 +70,12 @@ AngularApp.controller('addBookController', [
         $scope.book = {};
         $scope.requiredAuthors = [];
         $scope.requiredAuthorsId = [];
+        if ($dataBus.editItems.editBook != null) {
+            $scope.requiredAuthorsId = angular.copy($dataBus.editItems.editBook.author, []) || [];
+        } else {
+            $scope.requiredAuthorsId = [];
+        }
+
         $scope.data = {
             books: $dataBus.myBooks || [],
             authors: $dataBus.myAuthors || []
