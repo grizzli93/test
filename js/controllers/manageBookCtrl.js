@@ -52,6 +52,8 @@ AngularApp.controller('addBookController', [
             var id = $dataBus.editItems.editBook.id;
             for (var i = 0; i < $dataBus.myBooks.length; i++) {
                 if ($dataBus.myBooks[i].id == id) {
+                    debugger;
+                    $dataBus.editItems.editBook.author = $scope.requiredAuthorsId;
                     $dataBus.myBooks[i] = $scope.editData.editBook;
                     $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
                 }

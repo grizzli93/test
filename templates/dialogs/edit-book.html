@@ -2,20 +2,20 @@
     <form id="add-book-block" name="addBookForm">
         <div>
             <label for="editbook-book-id">Book ID</label>
-            <input type="text" id="editbook-book-id" ng-model="editData.editBook.id" required/>
+            <input type="text" id="editbook-book-id" class="form-control"  ng-model="editData.editBook.id" required/>
         </div>
         <div>
             <label for="editbook-book-name">Book name</label>
-            <input type="text" id="editbook-book-name" ng-model="editData.editBook.name" required/>
+            <input type="text" id="editbook-book-name" class="form-control"  ng-model="editData.editBook.name" required/>
         </div>
         <div>
             <label for="editbook-book-date">Date</label>
-            <input id="editbook-book-date" ng-model="editData.editBook.date" required/>
+            <input id="editbook-book-date" class="form-control"  ng-model="editData.editBook.date" required/>
         </div>
         <div>
-            <span>
+            <span class="authors">
                 <label>Authors</label>
-                <span class="author-wrapper" ng-repeat="requiredAuthor in editData.editBook.author">{{getAuthorNameByID(requiredAuthor)[0]}}<span
+                <span class="author-wrapper" ng-repeat="requiredAuthor in requiredAuthorsId">{{getAuthorNameByID(requiredAuthor)[0]}}<span
                         class="glyphicon glyphicon-remove" ng-click="removeRequiredAuthor(requiredAuthor)"></span>
                 </span>
             </span>
@@ -25,11 +25,11 @@
                 <tr>
                     <td>
                         <label class="searchlabel-author">Author</label>
-                        <input type="text" ng-model="authorsFilter.name"/>
+                        <input type="text" ng-model="authorsFilter.name" class="form-control"/>
                     </td>
                 </tr>
                 <tr ng-repeat="author in data.authors | filter:authorsFilter">
-                    <td ng-hide="author.invisible">{{author.name}}<span ng-click="addRequiredAuthor(author.name)"
+                    <td ng-hide="author.invisible">{{author.name}}<span ng-click="addRequiredAuthor(author.id)"
                                                                         class="glyphicon glyphicon-plus author-add"></span>
                     </td>
                 </tr>
@@ -38,6 +38,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <input type="submit" value="Save changes" class="btn btn-warning" ng-click="saveBook()"/>
+    <input type="submit" data-dismiss="modal"  value="Save changes" class="btn btn-warning" ng-click="saveBook()"/>
     <input type="button" data-dismiss="modal" class="btn btn-warning" value="Cancel" ng-click="restoreAuthors(book)">
 </div>
