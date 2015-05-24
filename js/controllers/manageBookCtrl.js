@@ -49,15 +49,16 @@ AngularApp.controller('addBookController', [
             }
         };
         $scope.saveBook = function () {
-            var id = $scope.editData.editBook.id;
-            if ($dataBus.getBookById(id) != 'undefined') {
-                $dataBus.myBooks.splice(id, 1);
-                $dataBus.myBooks.push($scope.editData.editBook);
-                $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
-            } else {
-                $dataBus.myBooks.push($scope.editData.editBook);
-                $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
+            var id = $dataBus.editItems.editBook.id;
+            for (var i = 0; i < $dataBus.myBooks.length; i++) {
+                if ($dataBus.myBooks[i].id == id) {
+                    $dataBus.myBooks[i] = $scope.editData.editBook;
+                    $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
+                }
             }
+        };
+        $scope.saveAuthor = function() {
+
         };
         $scope.editData = $dataBus.editItems;
         $scope.author = {};

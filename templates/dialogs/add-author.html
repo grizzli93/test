@@ -2,17 +2,17 @@
     <form id="add-author-block">
         <div>
             <label for="addauthor-author-id">Author ID</label>
-            <input type="text" id="addauthor-author-id" ng-model="author.id"/>
+            <input type="text" id="addauthor-author-id" class="form-control" ng-model="author.id" required/>
         </div>
         <div>
             <label for="addauthor-author-name">
                 Author name
             </label>
-            <input type="text" id="addauthor-author-name" ng-model="author.name"/>
+            <input type="text" id="addauthor-author-name" class="form-control" ng-model="author.name" required/>
         </div>
     </form>
 </div>
 <div class="modal-footer">
-    <input type="submit" value="Save author" class="btn btn-warning" ng-click="addAuthor()"/>
+    <input type="submit" value="Save author" class="btn btn-warning" ng-click="addAuthor()" data-dismiss="modal"/>
     <input type="button" data-dismiss="modal" class="btn btn-warning" value="Cancel">
 </div>

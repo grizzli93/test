@@ -11,7 +11,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="book in books | filter:search" rep-test>
+        <tr ng-repeat="book in books | filter:search">
             <!--<td>{{book}}</td>-->
             <td>{{book.name}}</td>
             <td class='authors'><span ng-repeat="author in book.author">{{getAuthorNameByID(author)[0]}}{{$last ? '' : ', '}}</span></td>
