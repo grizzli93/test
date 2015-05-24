@@ -143,7 +143,10 @@ form input.ng-valid {
 form input.ng-invalid:not(.ng-untouched) {
     background-color: rgba(255, 5, 18, .2)
 }
-
+span.authors {
+    display: block;
+    margin: 10px 0;
+}
 /*.ng-invalid.ng-dirty {*/
 /*border-color: red;*/
 /*}*/

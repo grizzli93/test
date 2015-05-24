@@ -14,7 +14,7 @@
                    ng-model="book.date" min="1000" max="2015" value="2014" required/>
         </div>
         <div>
-            <span>
+            <span class="authors">
                 <label>Authors</label>
                 <span class="author-wrapper" ng-repeat="requiredAuthor in requiredAuthors">{{getAuthorNameByID(requiredAuthor.id)[0]}}<span
                         class="glyphicon glyphicon-remove" ng-click="removeRequiredAuthor(requiredAuthor.id)"></span>

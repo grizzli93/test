@@ -3,15 +3,15 @@
     <table class="table table-hover" ng-show="(books | filter:search).length">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Authors</th>
-            <th>Date</th>
-            <th>ID</th>
+            <th ng-click="sortOrder = 'name'; reverse = !reverse">Name</th>
+            <th ng-click="sortOrder = 'authors'; reverse = !reverse">Authors</th>
+            <th ng-click="sortOrder = 'date'; reverse = !reverse">Date</th>
+            <th ng-click="sortOrder = 'id'; reverse = !reverse">ID</th>
             <th class="table-cell-actions">Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="book in books | filter:search">
+        <tr ng-repeat="book in books | filter:search | orderBy:sortOrder:reverse">
             <!--<td>{{book}}</td>-->
             <td>{{book.name}}</td>
             <td class='authors'><span ng-repeat="author in book.author">{{getAuthorNameByID(author)[0]}}{{$last ? '' : ', '}}</span></td>
