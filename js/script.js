@@ -10,3 +10,4 @@ var AngularApp = angular.module('newModule', ['ngRoute']);
 //большой скоуп
 //добавление автора
 //доступность методов одного контроллера из другого displayContent
+//

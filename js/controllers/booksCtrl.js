@@ -4,12 +4,8 @@ AngularApp.controller('booksController', [
     'dataBus',
     function ($http, $scope, $dataBus) {
         $scope.getAuthorNameByID = $dataBus.getAuthorNameByID;
-
         $dataBus.getMyBooks().then(function () {
             $scope.books = $dataBus.myBooks;
-            $.each($scope.books, function (index) {
-                $scope.books[index].author = $dataBus.getAuthorNameByID($scope.books[index].author);
-            });
             $('#preloader').removeClass('preloader');
         });
         $dataBus.getMyAuthors().then(function () {
@@ -26,10 +22,5 @@ AngularApp.controller('booksController', [
                 animation: false,
                 container: 'body'
             });
-        };
-        $scope.editBook = function (id) {
-//          dialogSevice.displayContent('displayEditBook');
-//          setBookToEdit(id)
-            console.log(id);
         };
     }]);

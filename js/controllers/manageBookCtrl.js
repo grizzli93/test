@@ -3,10 +3,10 @@ AngularApp.controller('addBookController', [
     'dataService',
     'dataBus',
     function ($scope, $dataService, $dataBus) {
-
+        $scope.getAuthorNameByID = $dataBus.getAuthorNameByID;
         $scope.addRequiredAuthor = function (arg) {
             for (var i = 0; i < $scope.data.authors.length; i++) {
-                if ($scope.data.authors[i].name == arg) {
+                if ($scope.data.authors[i].id == arg) {
                     $scope.data.authors[i].invisible = true;
                     $scope.requiredAuthors.push($scope.data.authors[i]);
                     $scope.requiredAuthorsId.push($scope.data.authors[i].id);
@@ -14,9 +14,10 @@ AngularApp.controller('addBookController', [
             }
         };
         $scope.removeRequiredAuthor = function (arg) {
-            for (var i = 0; i <= $scope.requiredAuthors.length; i++) {
+            for (var i = 0; i < $scope.requiredAuthors.length; i++) {
                 if ($scope.requiredAuthors[i].id == arg) {
                     $scope.requiredAuthors.splice(i, 1);
+                    $scope.requiredAuthorsId.splice(i, 1);
                 }
             }
             for (var j = 0; j < $scope.data.authors.length; j++) {
@@ -47,11 +48,18 @@ AngularApp.controller('addBookController', [
                 $scope['arg'] = [];
             }
         };
-
-        $scope.editData = {
-            editBook: $dataBus.editItems
+        $scope.saveBook = function () {
+            var id = $scope.editData.editBook.id;
+            if ($dataBus.getBookById(id) != 'undefined') {
+                $dataBus.myBooks.splice(id, 1);
+                $dataBus.myBooks.push($scope.editData.editBook);
+                $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
+            } else {
+                $dataBus.myBooks.push($scope.editData.editBook);
+                $dataService.setCollection('myBooksCollection', $dataBus.myBooks);
+            }
         };
-
+        $scope.editData = $dataBus.editItems;
         $scope.author = {};
         $scope.book = {};
         $scope.requiredAuthors = [];

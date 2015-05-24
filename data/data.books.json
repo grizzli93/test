@@ -1,24 +1,24 @@
 [
     {
-        "author": 4,
+        "author": [4],
         "date": "1998",
         "name": "Winter",
         "id": 1
     },
     {
-        "author": 2,
+        "author": [2],
         "date": "1994",
         "name": "Autumn",
         "id": 2
     },
     {
-        "author": 1,
+        "author": [1],
         "date": "1988",
         "name": "Desert",
         "id": 3
     },
     {
-        "author": 3,
+        "author": [3],
         "date": "2000",
         "name": "Forest",
         "id": 4

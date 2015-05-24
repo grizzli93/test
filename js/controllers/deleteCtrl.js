@@ -4,7 +4,6 @@ AngularApp.controller('deleteController', [
     'dataService',
     function ($scope, $dataBus, $dataService) {
         $scope.removeBook = function () {
-            console.log($dataBus.idToRemove + '312');
             for (var i = 0; i < $dataBus.myBooks.length; i++) {
                 if ($dataBus.myBooks[i].id == $dataBus.idToRemove) {
                     $dataBus.myBooks.splice(i, 1);

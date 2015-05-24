@@ -1,4 +1,7 @@
-AngularApp.controller('dialogController', ['$scope', 'dataBus', function ($scope, $dataBus) {
+AngularApp.controller('dialogController', [
+    '$scope',
+    'dataBus',
+    function ($scope, $dataBus) {
 
     $scope.displayDialogContent = {
         displayRemoveAuthor: false,
@@ -8,7 +11,6 @@ AngularApp.controller('dialogController', ['$scope', 'dataBus', function ($scope
         displayAddAuthor: false,
         displayAddBook: false
     };
-
     $scope.displayContent = function (content) {
         $.each($scope.displayDialogContent, function (key, value) {
             $scope.displayDialogContent[key] = false;
@@ -30,7 +32,7 @@ AngularApp.controller('dialogController', ['$scope', 'dataBus', function ($scope
 
     };
     $scope.setBookToEdit = function (id) {
-
+        $dataBus.editItems.editBook = $dataBus.getBookById(id)
     };
     $scope.returnCurrentDialogTitle = function () {
         var result;

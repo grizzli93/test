@@ -6,7 +6,6 @@ AngularApp
             scope: false
         }
     })
-
     .directive('dialogWrapper', function () {
         return {
             restrict: 'E',
@@ -15,7 +14,6 @@ AngularApp
             scope: false
         }
     })
-
     .directive('removeBookDialog', function () {
         return {
             restrict: 'E',
@@ -24,7 +22,6 @@ AngularApp
             scope: false
         }
     })
-
     .directive('removeAuthorDialog', function () {
         return {
             restrict: 'E',
@@ -33,30 +30,35 @@ AngularApp
             scope: false
         }
     })
-
     .directive('addBook', function () {
         return {
             restrict: 'E',
-            templateUrl: 'templates/add-book.html',
+            templateUrl: 'templates/dialogs/add-book.html',
             controller: 'addBookController',
             scope: false
         }
     })
-
     .directive('addAuthor', function () {
         return {
             restrict: 'E',
-            templateUrl: 'templates/add-author.html',
+            templateUrl: 'templates/dialogs/add-author.html',
             controller: 'addAuthorController',
             scope: false
         }
     })
-
     .directive('editBook', function () {
         return {
             restrict: 'E',
-            templateUrl: 'templates/edit-book.html',
+            templateUrl: 'templates/dialogs/edit-book.html',
             controller: 'addBookController',
+            scope: false
+        }
+    })
+    .directive('editAuthor', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/dialogs/edit-author.html',
+            controller: 'addAuthorController',
             scope: false
         }
     });

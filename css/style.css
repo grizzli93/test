@@ -126,6 +126,10 @@ th {
     background: #ddd;
 }
 
+th:not(.table-cell-actions):hover {
+    background-color: #9d9;
+    cursor: pointer;
+}
 .popover-content img {
     width: 150px;
 }
